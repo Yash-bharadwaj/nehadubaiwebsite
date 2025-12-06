@@ -39,6 +39,12 @@ const About: React.FC = () => {
   const [mutedVideos, setMutedVideos] = useState<{ [key: number]: boolean }>({});
   const [selectedIndex, setSelectedIndex] = useState(0);
   const videoRefs = useRef<{ [key: number]: HTMLVideoElement | null }>({});
+  const mutedVideosRef = useRef<{ [key: number]: boolean }>({});
+
+  // Keep ref in sync with state
+  useEffect(() => {
+    mutedVideosRef.current = mutedVideos;
+  }, [mutedVideos]);
 
   // Track selected slide
   useEffect(() => {
@@ -57,8 +63,9 @@ const About: React.FC = () => {
           }
         });
         
-        // Preserve mute state for this video
-        const shouldBeMuted = mutedVideos[currentVideoId] !== false;
+        // Preserve mute state for this video - read from ref to get latest value
+        const shouldBeMuted = mutedVideosRef.current[currentVideoId] !== false;
+        video.muted = shouldBeMuted;
         video.loop = true;
         
         video.play().then(() => {
@@ -86,6 +93,17 @@ const About: React.FC = () => {
     });
   }, [playingVideo]);
 
+  // Sync video muted state with React state
+  useEffect(() => {
+    Object.entries(videoRefs.current).forEach(([id, video]) => {
+      if (video) {
+        const videoId = Number(id);
+        const shouldBeMuted = mutedVideos[videoId] !== false;
+        video.muted = shouldBeMuted;
+      }
+    });
+  }, [mutedVideos]);
+
 
   const handlePlayPause = (videoId: number, e: React.MouseEvent) => {
     e.preventDefault();
@@ -108,9 +126,18 @@ const About: React.FC = () => {
     e.preventDefault();
     e.stopPropagation();
     
+    const video = videoRefs.current[videoId];
+    if (!video) return;
+    
+    // Get current state (default to true if undefined, meaning muted)
+    const currentMutedState = mutedVideos[videoId] !== false;
+    const newMutedState = !currentMutedState;
+    
+    // Update both video element and state
+    video.muted = newMutedState;
     setMutedVideos(prev => ({
       ...prev,
-      [videoId]: prev[videoId] === false ? true : false
+      [videoId]: newMutedState
     }));
   };
 

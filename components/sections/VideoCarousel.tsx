@@ -35,9 +35,9 @@ const VideoCarousel: React.FC = () => {
     dragFree: false,
   });
 
-  const [playingVideos, setPlayingVideos] = useState<{ [key: number]: boolean }>({});
-  const [mutedVideos, setMutedVideos] = useState<{ [key: number]: boolean }>({});
-  const videoRefs = useRef<{ [key: number]: HTMLVideoElement | null }>({});
+  const [playingVideos, setPlayingVideos] = useState<{ [key: string]: boolean }>({});
+  const [mutedVideos, setMutedVideos] = useState<{ [key: string]: boolean }>({});
+  const videoRefs = useRef<{ [key: string]: HTMLVideoElement | null }>({});
 
   // Initialize scroll position to middle set for seamless infinite scroll
   useEffect(() => {
@@ -175,15 +175,14 @@ const VideoCarousel: React.FC = () => {
   // Auto-play all videos on mount
   useEffect(() => {
     const playAllVideos = () => {
-      Object.entries(videoRefs.current).forEach(([id, video]) => {
+      Object.entries(videoRefs.current).forEach(([uniqueId, video]) => {
         if (video) {
-          const videoId = Number(id);
           video.muted = true;
           video.loop = true;
-          setMutedVideos(prev => ({ ...prev, [videoId]: true }));
+          setMutedVideos(prev => ({ ...prev, [uniqueId]: true }));
           
           video.play().then(() => {
-            setPlayingVideos(prev => ({ ...prev, [videoId]: true }));
+            setPlayingVideos(prev => ({ ...prev, [uniqueId]: true }));
           }).catch(() => {
             // Autoplay might be blocked
           });
@@ -195,32 +194,37 @@ const VideoCarousel: React.FC = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const handlePlayPause = (videoId: number, e: React.MouseEvent) => {
+  const handlePlayPause = (uniqueId: string, e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     
-    const video = videoRefs.current[videoId];
+    const video = videoRefs.current[uniqueId];
     if (!video) return;
 
     if (video.paused) {
       video.play().then(() => {
-        setPlayingVideos(prev => ({ ...prev, [videoId]: true }));
+        setPlayingVideos(prev => ({ ...prev, [uniqueId]: true }));
       });
     } else {
       video.pause();
-      setPlayingVideos(prev => ({ ...prev, [videoId]: false }));
+      setPlayingVideos(prev => ({ ...prev, [uniqueId]: false }));
     }
   };
 
-  const handleMuteToggle = (videoId: number, e: React.MouseEvent) => {
+  const handleMuteToggle = (uniqueId: string, e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     
-    const video = videoRefs.current[videoId];
+    const video = videoRefs.current[uniqueId];
     if (!video) return;
     
-    video.muted = !video.muted;
-    setMutedVideos(prev => ({ ...prev, [videoId]: video.muted }));
+    // Get current state (default to true if undefined, meaning muted)
+    const currentMutedState = mutedVideos[uniqueId] !== false;
+    const newMutedState = !currentMutedState;
+    
+    // Update both video element and state
+    video.muted = newMutedState;
+    setMutedVideos(prev => ({ ...prev, [uniqueId]: newMutedState }));
   };
 
   const scrollPrev = () => {
@@ -272,8 +276,8 @@ const VideoCarousel: React.FC = () => {
           <div className="flex gap-6 px-6 md:px-12 pb-8 no-scrollbar">
             {duplicatedVideos.map((video, index) => {
               const uniqueId = `${video.id}-${index}`;
-              const isPlaying = playingVideos[video.id] || false;
-              const isMuted = mutedVideos[video.id] !== false;
+              const isPlaying = playingVideos[uniqueId] || false;
+              const isMuted = mutedVideos[uniqueId] !== false;
               
               return (
                 <div
@@ -284,7 +288,10 @@ const VideoCarousel: React.FC = () => {
                   <video
                     ref={(el) => {
                       if (el) {
-                        videoRefs.current[video.id] = el;
+                        videoRefs.current[uniqueId] = el;
+                      } else {
+                        // Clean up ref when element is removed
+                        delete videoRefs.current[uniqueId];
                       }
                     }}
                     src={video.src}
@@ -301,7 +308,7 @@ const VideoCarousel: React.FC = () => {
                     <div className="w-full bg-gradient-to-t from-black/80 to-transparent p-3 flex items-center justify-between pointer-events-auto">
                       {/* Left side - Play/Pause */}
                       <button
-                        onClick={(e) => handlePlayPause(video.id, e)}
+                        onClick={(e) => handlePlayPause(uniqueId, e)}
                         className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center hover:bg-gold-500 hover:border-gold-500 transition-all duration-300"
                         type="button"
                         aria-label={isPlaying ? "Pause video" : "Play video"}
@@ -317,7 +324,7 @@ const VideoCarousel: React.FC = () => {
 
                       {/* Right side - Mute/Unmute */}
                       <button
-                        onClick={(e) => handleMuteToggle(video.id, e)}
+                        onClick={(e) => handleMuteToggle(uniqueId, e)}
                         className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center hover:bg-gold-500 hover:border-gold-500 transition-all duration-300"
                         type="button"
                         aria-label={isMuted ? "Unmute video" : "Mute video"}
