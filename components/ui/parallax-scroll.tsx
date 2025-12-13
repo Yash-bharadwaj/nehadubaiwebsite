@@ -58,11 +58,11 @@ export const ParallaxScroll = ({
 
       <div
 
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-start  max-w-5xl mx-auto gap-10 py-40 px-10"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-start max-w-6xl mx-auto gap-3 sm:gap-4 md:gap-6 lg:gap-8 py-4 sm:py-6 md:py-8 lg:py-12 px-4 sm:px-6 md:px-8 lg:px-10"
 
       >
 
-        <div className="grid gap-10">
+        <div className="grid gap-3 sm:gap-4 md:gap-6 lg:gap-8">
 
           {firstPart.map((el, idx) => (
 
@@ -72,19 +72,21 @@ export const ParallaxScroll = ({
 
               key={"grid-1" + idx}
 
+              className="group"
+
             >
 
               <img
 
                 src={el}
 
-                className="h-80 w-full object-cover object-left-top rounded-lg gap-10 !m-0 !p-0"
+                className="h-64 sm:h-72 md:h-80 lg:h-96 w-full object-cover object-center rounded-xl md:rounded-2xl shadow-lg group-hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.02] !m-0 !p-0"
 
                 height="400"
 
                 width="400"
 
-                alt="thumbnail"
+                alt="Celebrity hosted by Neha Dixit"
 
               />
 
@@ -94,23 +96,23 @@ export const ParallaxScroll = ({
 
         </div>
 
-        <div className="grid gap-10">
+        <div className="grid gap-3 sm:gap-4 md:gap-6 lg:gap-8">
 
           {secondPart.map((el, idx) => (
 
-            <motion.div style={{ y: translateSecond }} key={"grid-2" + idx}>
+            <motion.div style={{ y: translateSecond }} key={"grid-2" + idx} className="group">
 
               <img
 
                 src={el}
 
-                className="h-80 w-full object-cover object-left-top rounded-lg gap-10 !m-0 !p-0"
+                className="h-64 sm:h-72 md:h-80 lg:h-96 w-full object-cover object-center rounded-xl md:rounded-2xl shadow-lg group-hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.02] !m-0 !p-0"
 
                 height="400"
 
                 width="400"
 
-                alt="thumbnail"
+                alt="Celebrity hosted by Neha Dixit"
 
               />
 
@@ -120,23 +122,23 @@ export const ParallaxScroll = ({
 
         </div>
 
-        <div className="grid gap-10">
+        <div className="grid gap-3 sm:gap-4 md:gap-6 lg:gap-8">
 
           {thirdPart.map((el, idx) => (
 
-            <motion.div style={{ y: translateThird }} key={"grid-3" + idx}>
+            <motion.div style={{ y: translateThird }} key={"grid-3" + idx} className="group">
 
               <img
 
                 src={el}
 
-                className="h-80 w-full object-cover object-left-top rounded-lg gap-10 !m-0 !p-0"
+                className="h-64 sm:h-72 md:h-80 lg:h-96 w-full object-cover object-center rounded-xl md:rounded-2xl shadow-lg group-hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.02] !m-0 !p-0"
 
                 height="400"
 
                 width="400"
 
-                alt="thumbnail"
+                alt="Celebrity hosted by Neha Dixit"
 
               />
 

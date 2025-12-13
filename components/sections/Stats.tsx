@@ -5,8 +5,8 @@ import SplitText from '../ui/SplitText';
 const stats = [
   { label: "Events Hosted", value: 200, suffix: "+" },
   { label: "Years Experience", value: 8, suffix: "+" },
-  { label: "Countries", value: 10, suffix: "+" },
-  { label: "Languages", value: 3, suffix: "" },
+  { label: "Happy Clients", value:100, suffix: "+" },
+  { label: "Industries", value: 12, suffix: "+" },
 ];
 
 const useCounter = (end: number, duration: number = 2000, start: boolean) => {

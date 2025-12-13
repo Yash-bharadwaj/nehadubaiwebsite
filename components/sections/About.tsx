@@ -3,16 +3,16 @@ import useEmblaCarousel from 'embla-carousel-react';
 import SectionWrapper from '../layout/SectionWrapper';
 
 // Import testimonial videos
-import video1 from '../nehaWebsiteVideos/ashokkarla.mp4';
-import video2 from '../nehaWebsiteVideos/iihaammaniar.mp4';
-import video3 from '../nehaWebsiteVideos/muralikrishna.mp4';
+import video1 from '../nehaWebsiteVideos/testimonial-ashok-kalra.mp4';
+import video2 from '../nehaWebsiteVideos/testimonial-ilhaam-maniar.mp4';
+import video3 from '../nehaWebsiteVideos/testimonial-murali-krishnan.mp4';
 
 const testimonialVideos = [
   { 
     id: 1, 
-    src: video1, 
-    name: 'Mr. Ashok Kalra',
-    designation: 'Owner, Lavang Fine Dining Restaurant, Downtown Dubai'
+    src: video3, 
+    name: 'Mr. Murali Krishnan',
+    designation: 'CHRO, Jumbo Group'
   },
   { 
     id: 2, 
@@ -22,9 +22,9 @@ const testimonialVideos = [
   },
   { 
     id: 3, 
-    src: video3, 
-    name: 'Mr. Murali Krishnan',
-    designation: 'CHRO, Jumbo Group'
+    src: video1, 
+    name: 'Mr. Ashok Kalra',
+    designation: 'Owner, Lavang Fine Dining Restaurant, Downtown Dubai'
   },
 ];
 

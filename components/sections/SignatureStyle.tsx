@@ -1,98 +1,70 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import SectionWrapper from '../layout/SectionWrapper';
-import SplitText from '../ui/SplitText';
 
-const quotes = [
-  { line1: "No awkward silences.", line2: "No dull moments.", line3: "Just seamless celebration." },
-  { line1: "Energy that captivates.", line2: "Words that resonate.", line3: "Moments that matter." },
-  { line1: "Professional yet personal.", line2: "Structured yet spontaneous.", line3: "Elegant yet engaging." },
+const services = [
+  { 
+    title: "Corporate Events", 
+    desc: "Professional hosting for conferences and meetings.", 
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+        <path fillRule="evenodd" d="M3 2.25a.75.75 0 00-.75.75v18a.75.75 0 00.75.75h18a.75.75 0 00.75-.75V3a.75.75 0 00-.75-.75H3zm6 12a.75.75 0 01.75-.75h4.5a.75.75 0 01.75.75v4.5a.75.75 0 01-.75.75h-4.5a.75.75 0 01-.75-.75v-4.5zM6 6.75A.75.75 0 016.75 6h10.5a.75.75 0 01.75.75v4.5a.75.75 0 01-.75.75H6.75a.75.75 0 01-.75-.75v-4.5z" clipRule="evenodd" />
+      </svg>
+    )
+  },
+  { 
+    title: "Team Building", 
+    desc: "Dynamic facilitation that brings teams together.", 
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+        <path d="M4.5 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM14.25 8.625a3.375 3.375 0 116.75 0 3.375 3.375 0 01-6.75 0zM1.5 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM17.25 19.128l-.001.144a2.25 2.25 0 01-.233.96 10.088 10.088 0 005.06-1.01.75.75 0 00.42-.643 4.875 4.875 0 00-6.957-4.611 8.586 8.586 0 011.71 5.157v.003z" />
+      </svg>
+    )
+  },
+  { 
+    title: "Award Ceremonies", 
+    desc: "Elevating recognition events with grace and energy.", 
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+        <path fillRule="evenodd" d="M5.166 2.621v.858c-1.035.148-2.059.33-3.071.543a.75.75 0 00-.584.859 6.753 6.753 0 006.138 5.6 6.73 6.73 0 002.743 1.346A6.707 6.707 0 019.279 15H8.54c-1.036 0-1.875.84-1.875 1.875V19.5h-.75a2.25 2.25 0 00-2.25 2.25c0 .414.336.75.75.75h15a.75.75 0 00.75-.75 2.25 2.25 0 00-2.25-2.25h-.75v-2.625c0-1.036-.84-1.875-1.875-1.875h-.739a6.706 6.706 0 01-1.112-3.173 6.73 6.73 0 002.743-1.347 6.753 6.753 0 006.139-5.6.75.75 0 00-.585-.858 47.077 47.077 0 00-3.07-.543V2.62a.75.75 0 00-.658-.744 49.22 49.22 0 00-6.093-.377c-2.063 0-4.096.128-6.093.377a.75.75 0 00-.657.744zm0 2.629c0 1.196.312 2.32.857 3.294A5.266 5.266 0 013.16 5.337a45.6 45.6 0 012.006-.348zm13.668 8.036a5.266 5.266 0 01-2.864 3.206 5.266 5.266 0 002.864-3.206zm-3.398-3.844c.85.055 1.686.125 2.51.211a5.266 5.266 0 01-2.51-3.642v3.431z" clipRule="evenodd" />
+      </svg>
+    )
+  },
+  { 
+    title: "Weddings & Celebrations", 
+    desc: "Bilingual hosting for elegant and memorable events.", 
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+        <path fillRule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
+      </svg>
+    )
+  },
 ];
 
 const SignatureStyle: React.FC = () => {
-  const [quoteIdx, setQuoteIdx] = useState(0);
-
-  // Cycle through quotes
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setQuoteIdx((prev) => (prev + 1) % quotes.length);
-    }, 4000); // Change quote every 4 seconds
-    return () => clearInterval(interval);
-  }, []);
-
-  const currentQuote = quotes[quoteIdx];
-
   return (
-    <SectionWrapper className="bg-brand-secondary dark:bg-brand-dark-bg relative overflow-hidden transition-colors duration-500">
-        {/* Background Decorations */}
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-stone-300 dark:via-white/10 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-stone-300 dark:via-white/10 to-transparent"></div>
+    <SectionWrapper>
+      <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+        <div className="max-w-xl">
+          <h2 className="text-4xl font-serif font-bold mb-4 text-brand-charcoal dark:text-white transition-colors">Services & Expertise</h2>
+          <p className="text-stone-600 dark:text-stone-400 transition-colors">From corporate boardrooms to wedding ballrooms, I bring energy, elegance, and seamless execution to every event.</p>
+        </div>
+      </div>
 
-      <div className="grid md:grid-cols-2 gap-16 items-center">
-        <div>
-          <span className="text-gold-600 dark:text-gold-400 text-sm tracking-widest uppercase font-bold mb-2 block">Why Clients Choose Neha</span>
-          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-8 text-brand-charcoal dark:text-white transition-colors">The Neha Dixit <br/>Signature</h2>
-          <div className="space-y-8">
-            {[
-                { title: "Impeccable Speech", desc: "Clear, articulate, and commanding diction in English and Hindi." },
-                { title: "Spontaneous Humour", desc: "Quick-witted interactions that keep the audience smiling." },
-                { title: "Elegant Presence", desc: "A refined look and poise that elevates the event's prestige." },
-                { title: "Seamless Transitions", desc: "Mastery in bridging gaps between segments smoothly." }
-            ].map((item, i) => (
-               <div key={i} className="flex gap-6 group">
-                 <div className="mt-1 w-2 h-2 rounded-full bg-gold-500 ring-4 ring-gold-500/10 group-hover:ring-gold-500/30 transition-all"></div>
-                 <div>
-                     <h4 className="text-xl font-bold text-brand-charcoal dark:text-white mb-1 group-hover:text-gold-600 dark:group-hover:text-gold-400 transition-colors">{item.title}</h4>
-                     <p className="text-stone-600 dark:text-stone-400 text-sm leading-relaxed transition-colors">{item.desc}</p>
-                 </div>
-               </div>
-            ))}
-          </div>
-        </div>
-        
-        <div className="relative">
-             <div className="absolute inset-0 bg-white/40 dark:bg-brand-dark-surface/40 blur-[60px] rounded-full opacity-60"></div>
-             <div className="relative p-12 border border-white dark:border-white/10 rounded-3xl bg-white/60 dark:bg-brand-dark-surface/60 backdrop-blur-xl text-center shadow-lg shadow-stone-200/50 dark:shadow-black/50 transition-colors">
-                <span className="text-6xl text-gold-500 font-serif opacity-30">"</span>
-                <blockquote key={quoteIdx} className="text-2xl md:text-3xl font-serif italic text-brand-charcoal dark:text-white mb-8 leading-relaxed transition-all duration-500">
-                    <div className="block mb-2">
-                        <SplitText 
-                            text={currentQuote.line1} 
-                            delay={20}
-                            duration={0.4}
-                        />
-                    </div>
-                    <div className="block mb-2">
-                        <SplitText 
-                            text={currentQuote.line2} 
-                            delay={40}
-                            duration={0.4}
-                        />
-                    </div>
-                    <div>
-                        {currentQuote.line3 === "Just seamless celebration." ? (
-                            <>
-                                Just <span className="text-highlight">seamless celebration.</span>
-                            </>
-                        ) : currentQuote.line3 === "Moments that matter." ? (
-                            <>
-                                <span className="text-highlight">Moments that matter.</span>
-                            </>
-                        ) : currentQuote.line3 === "Elegant yet engaging." ? (
-                            <>
-                                <span className="text-highlight">Elegant yet engaging.</span>
-                            </>
-                        ) : (
-                            <SplitText 
-                                text={currentQuote.line3} 
-                                delay={60}
-                                duration={0.4}
-                            />
-                        )}
-                    </div>
-                </blockquote>
-                <div className="h-1 w-20 bg-gold-500 mx-auto rounded-full"></div>
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {services.map((service, idx) => (
+          <div key={idx} className="bg-white dark:bg-brand-dark-surface rounded-2xl p-8 flex flex-col justify-between min-h-[240px] shadow-sm hover:shadow-xl hover:shadow-stone-200 dark:shadow-none dark:hover:shadow-gold-900/10 transition-all duration-300 group relative overflow-hidden border border-stone-100 dark:border-white/10">
+            {/* Hover Gradient Background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white to-white group-hover:from-gold-50/50 group-hover:to-white dark:from-brand-dark-surface dark:to-brand-dark-surface dark:group-hover:from-white/5 dark:group-hover:to-brand-dark-surface transition-all duration-500"></div>
+
+            <div className="relative z-10">
+              <div className="mb-6 w-14 h-14 rounded-full bg-stone-50 dark:bg-white/5 border border-stone-100 dark:border-white/10 flex items-center justify-center text-brand-charcoal dark:text-gold-400 group-hover:scale-110 group-hover:border-gold-200 dark:group-hover:border-gold-500/30 transition-all shadow-sm">
+                {service.icon}
+              </div>
+              <h3 className="text-2xl font-serif font-bold mb-3 text-brand-charcoal dark:text-white group-hover:text-gold-600 dark:group-hover:text-gold-400 transition-colors">{service.title}</h3>
+              <p className="text-stone-500 dark:text-stone-400 text-sm leading-relaxed">{service.desc}</p>
             </div>
-        </div>
+          </div>
+        ))}
       </div>
     </SectionWrapper>
   );

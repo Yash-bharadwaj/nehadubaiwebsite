@@ -3,13 +3,13 @@ import useEmblaCarousel from 'embla-carousel-react';
 import SectionWrapper from '../layout/SectionWrapper';
 
 // Import videos - Keep only 7 smallest videos
-import video1 from '../nehaWebsiteVideos/WhatsApp Video 2025-11-24 at 20.29.13.mp4';
-import video2 from '../nehaWebsiteVideos/WhatsApp Video 2025-11-24 at 20.28.42 (1).mp4';
-import video3 from '../nehaWebsiteVideos/WhatsApp Video 2025-11-24 at 20.29.12 (1).mp4';
-import video4 from '../nehaWebsiteVideos/WhatsApp Video 2025-11-24 at 20.29.11 (1).mp4';
-import video5 from '../nehaWebsiteVideos/WhatsApp Video 2025-11-24 at 20.29.12.mp4';
-import video6 from '../nehaWebsiteVideos/WhatsApp Video 2025-11-24 at 20.51.58.mp4';
-import video7 from '../nehaWebsiteVideos/WhatsApp Video 2025-11-24 at 20.28.41 (1).mp4';
+import video1 from '../nehaWebsiteVideos/showcase-01.mp4';
+import video2 from '../nehaWebsiteVideos/showcase-02.mp4';
+import video3 from '../nehaWebsiteVideos/showcase-03.mp4';
+import video4 from '../nehaWebsiteVideos/showcase-04.mp4';
+import video5 from '../nehaWebsiteVideos/showcase-05.mp4';
+import video6 from '../nehaWebsiteVideos/showcase-06.mp4';
+import video7 from '../nehaWebsiteVideos/showcase-07.mp4';
 
 const videoSources = [
   video1, video2, video3, video4, video5, video6, video7

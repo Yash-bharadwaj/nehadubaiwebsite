@@ -4,11 +4,11 @@ import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Hero from './components/sections/Hero';
 import Stats from './components/sections/Stats';
+import LogoLoop from './components/sections/LogoLoop';
 import VideoCarousel from './components/sections/VideoCarousel';
-import TheExperience from './components/sections/TheExperience';
-import About from './components/sections/About';
+import About from './components/sections/About';                            
 import CelebritiesGallery from './components/sections/CelebritiesGallery';
-import EventsShowcase from './components/sections/EventsShowcase';
+import EmceeMoments from './components/sections/EmceeMoments';
 import SignatureStyle from './components/sections/SignatureStyle';
 import ClientsMarquee from './components/sections/ClientsMarquee';
 import Testimonials from './components/sections/Testimonials';
@@ -16,6 +16,8 @@ import Process from './components/sections/Process';
 import FAQ from './components/sections/FAQ';
 import Contact from './components/sections/Contact';
 import WhatsAppFloat from './components/ui/WhatsAppFloat';
+import SocialFloat from './components/ui/SocialFloat';
+import ScrollPopup from './components/ui/ScrollPopup';
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -70,11 +72,11 @@ function App() {
         <main className="flex flex-col gap-0">
           <Hero />
           <Stats />
+          <LogoLoop />
           <VideoCarousel />
-          <CelebritiesGallery />
-          <TheExperience />
           <About />
-          <EventsShowcase />
+          <CelebritiesGallery />
+          <EmceeMoments />
           <SignatureStyle />
           {/* <ClientsMarquee /> */}
           <Testimonials />
@@ -84,6 +86,8 @@ function App() {
         </main>
         <Footer />
         <WhatsAppFloat />
+        <SocialFloat />
+        <ScrollPopup />
       </div>
     </div>
   );
