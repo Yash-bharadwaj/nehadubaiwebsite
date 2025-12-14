@@ -58,17 +58,17 @@ const WhatsAppFloat: React.FC = () => {
       {/* Modal Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-3 sm:p-4"
           onClick={() => setIsOpen(false)}
         >
           <div
-            className="bg-white dark:bg-brand-dark-surface rounded-2xl shadow-2xl max-w-md w-full p-6 relative"
+            className="bg-white dark:bg-brand-dark-surface rounded-2xl shadow-2xl max-w-md w-full p-4 sm:p-6 relative max-h-[95vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
             <button
               onClick={() => setIsOpen(false)}
-              className="absolute top-4 right-4 text-stone-400 hover:text-stone-600 dark:hover:text-stone-300 transition-colors"
+              className="absolute top-3 right-3 sm:top-4 sm:right-4 text-stone-400 hover:text-stone-600 dark:hover:text-stone-300 transition-colors z-10"
               aria-label="Close"
             >
               <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -77,11 +77,11 @@ const WhatsAppFloat: React.FC = () => {
             </button>
 
             {/* Header */}
-            <div className="mb-6">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="w-12 h-12 bg-[#25D366] rounded-full flex items-center justify-center">
+            <div className="mb-4 sm:mb-6 pr-8">
+              <div className="flex items-center gap-2 sm:gap-3 mb-2">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#25D366] rounded-full flex items-center justify-center flex-shrink-0">
                   <svg
-                    className="w-7 h-7 text-white"
+                    className="w-5 h-5 sm:w-7 sm:h-7 text-white"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -89,10 +89,10 @@ const WhatsAppFloat: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-xl font-serif font-bold text-brand-charcoal dark:text-white">
+                  <h3 className="text-lg sm:text-xl font-serif font-bold text-brand-charcoal dark:text-white">
                     Hire Neha
                   </h3>
-                  <p className="text-sm text-stone-500 dark:text-stone-400">
+                  <p className="text-xs sm:text-sm text-stone-500 dark:text-stone-400">
                     Let's create magic together
                   </p>
                 </div>
@@ -100,47 +100,47 @@ const WhatsAppFloat: React.FC = () => {
             </div>
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
               {/* Name Field */}
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-brand-charcoal dark:text-stone-300 mb-2">
+                <label htmlFor="whatsapp-name" className="block text-sm font-medium text-brand-charcoal dark:text-stone-300 mb-1.5 sm:mb-2">
                   Your Name
                 </label>
                 <input
                   type="text"
-                  id="name"
+                  id="whatsapp-name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full px-4 py-3 rounded-lg border border-stone-300 dark:border-white/20 bg-white dark:bg-brand-dark-bg text-brand-charcoal dark:text-white focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-colors"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-stone-300 dark:border-white/20 bg-white dark:bg-brand-dark-bg text-base text-brand-charcoal dark:text-white focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-colors"
                   placeholder="Enter your name"
                 />
               </div>
 
               {/* Date Field (Optional) */}
               <div>
-                <label htmlFor="eventDate" className="block text-sm font-medium text-brand-charcoal dark:text-stone-300 mb-2">
+                <label htmlFor="whatsapp-eventDate" className="block text-sm font-medium text-brand-charcoal dark:text-stone-300 mb-1.5 sm:mb-2">
                   Event Date <span className="text-stone-400 text-xs">(Optional)</span>
                 </label>
                 <input
                   type="date"
-                  id="eventDate"
+                  id="whatsapp-eventDate"
                   value={eventDate}
                   onChange={(e) => setEventDate(e.target.value)}
-                  className="w-full px-4 py-3 rounded-lg border border-stone-300 dark:border-white/20 bg-white dark:bg-brand-dark-bg text-brand-charcoal dark:text-white focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-colors"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-stone-300 dark:border-white/20 bg-white dark:bg-brand-dark-bg text-base text-brand-charcoal dark:text-white focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-colors"
                 />
               </div>
 
               {/* Message Field */}
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-brand-charcoal dark:text-stone-300 mb-2">
+                <label htmlFor="whatsapp-message" className="block text-sm font-medium text-brand-charcoal dark:text-stone-300 mb-1.5 sm:mb-2">
                   Additional Details
                 </label>
                 <textarea
-                  id="message"
+                  id="whatsapp-message"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   rows={3}
-                  className="w-full px-4 py-3 rounded-lg border border-stone-300 dark:border-white/20 bg-white dark:bg-brand-dark-bg text-brand-charcoal dark:text-white focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-colors resize-none"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-stone-300 dark:border-white/20 bg-white dark:bg-brand-dark-bg text-base text-brand-charcoal dark:text-white focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-colors resize-none"
                   placeholder="Tell us about your event..."
                 />
               </div>
@@ -148,7 +148,7 @@ const WhatsAppFloat: React.FC = () => {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
+                className="w-full bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold py-3 sm:py-3.5 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl text-base sm:text-lg"
               >
                 <svg
                   className="w-5 h-5"

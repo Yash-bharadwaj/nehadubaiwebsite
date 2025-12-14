@@ -106,17 +106,17 @@ const ScrollPopup: React.FC = () => {
 
   return (
     <div
-      className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] flex items-center justify-center p-4"
+      className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] flex items-center justify-center p-3 sm:p-4"
       onClick={() => setIsOpen(false)}
     >
       <div
-        className="bg-white dark:bg-brand-dark-surface rounded-2xl shadow-2xl max-w-lg w-full p-6 md:p-8 relative max-h-[90vh] overflow-y-auto"
+        className="bg-white dark:bg-brand-dark-surface rounded-2xl shadow-2xl max-w-lg w-full p-4 sm:p-6 md:p-8 relative max-h-[95vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={() => setIsOpen(false)}
-          className="absolute top-4 right-4 text-stone-400 hover:text-stone-600 dark:hover:text-stone-300 transition-colors"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 text-stone-400 hover:text-stone-600 dark:hover:text-stone-300 transition-colors z-10"
           aria-label="Close"
         >
           <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -125,18 +125,18 @@ const ScrollPopup: React.FC = () => {
         </button>
 
         {/* Header */}
-        <div className="mb-6">
-          <div className="flex items-center gap-3 mb-2">
-            <div className="w-12 h-12 bg-gradient-to-br from-gold-500 to-gold-600 rounded-full flex items-center justify-center">
-              <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div className="mb-4 sm:mb-6 pr-8">
+          <div className="flex items-center gap-2 sm:gap-3 mb-2">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-gold-500 to-gold-600 rounded-full flex items-center justify-center flex-shrink-0">
+              <svg className="w-5 h-5 sm:w-7 sm:h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
             </div>
             <div>
-              <h3 className="text-xl font-serif font-bold text-brand-charcoal dark:text-white">
+              <h3 className="text-lg sm:text-xl font-serif font-bold text-brand-charcoal dark:text-white">
                 Book Neha for Your Event
               </h3>
-              <p className="text-sm text-stone-500 dark:text-stone-400">
+              <p className="text-xs sm:text-sm text-stone-500 dark:text-stone-400">
                 Quick booking form
               </p>
             </div>
@@ -144,50 +144,50 @@ const ScrollPopup: React.FC = () => {
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
           {/* Name */}
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-brand-charcoal dark:text-stone-300 mb-2">
+            <label htmlFor="popup-name" className="block text-sm font-medium text-brand-charcoal dark:text-stone-300 mb-1.5 sm:mb-2">
               Your Name <span className="text-red-500">*</span>
             </label>
             <input
               type="text"
-              id="name"
+              id="popup-name"
               value={formData.name}
               onChange={(e) => handleInputChange('name', e.target.value)}
               required
-              className="w-full px-4 py-3 rounded-lg border border-stone-300 dark:border-white/20 bg-white dark:bg-brand-dark-bg text-brand-charcoal dark:text-white focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-colors"
+              className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-stone-300 dark:border-white/20 bg-white dark:bg-brand-dark-bg text-base text-brand-charcoal dark:text-white focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-colors"
               placeholder="Enter your name"
             />
           </div>
 
           {/* Phone */}
           <div>
-            <label htmlFor="phone" className="block text-sm font-medium text-brand-charcoal dark:text-stone-300 mb-2">
+            <label htmlFor="popup-phone" className="block text-sm font-medium text-brand-charcoal dark:text-stone-300 mb-1.5 sm:mb-2">
               Phone Number <span className="text-red-500">*</span>
             </label>
             <input
               type="tel"
-              id="phone"
+              id="popup-phone"
               value={formData.phone}
               onChange={(e) => handleInputChange('phone', e.target.value)}
               required
-              className="w-full px-4 py-3 rounded-lg border border-stone-300 dark:border-white/20 bg-white dark:bg-brand-dark-bg text-brand-charcoal dark:text-white focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-colors"
+              className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-stone-300 dark:border-white/20 bg-white dark:bg-brand-dark-bg text-base text-brand-charcoal dark:text-white focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-colors"
               placeholder="+971 XX XXX XXXX"
             />
           </div>
 
           {/* Event Type */}
           <div>
-            <label htmlFor="eventType" className="block text-sm font-medium text-brand-charcoal dark:text-stone-300 mb-2">
+            <label htmlFor="popup-eventType" className="block text-sm font-medium text-brand-charcoal dark:text-stone-300 mb-1.5 sm:mb-2">
               Event Type <span className="text-red-500">*</span>
             </label>
             <select
-              id="eventType"
+              id="popup-eventType"
               value={formData.eventType}
               onChange={(e) => handleInputChange('eventType', e.target.value)}
               required
-              className="w-full px-4 py-3 rounded-lg border border-stone-300 dark:border-white/20 bg-white dark:bg-brand-dark-bg text-brand-charcoal dark:text-white focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-colors"
+              className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-stone-300 dark:border-white/20 bg-white dark:bg-brand-dark-bg text-base text-brand-charcoal dark:text-white focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-colors"
             >
               <option value="">Select event type</option>
               <option value="Corporate Event">Corporate Event</option>
@@ -203,28 +203,28 @@ const ScrollPopup: React.FC = () => {
 
           {/* Event Date */}
           <div>
-            <label htmlFor="eventDate" className="block text-sm font-medium text-brand-charcoal dark:text-stone-300 mb-2">
+            <label htmlFor="popup-eventDate" className="block text-sm font-medium text-brand-charcoal dark:text-stone-300 mb-1.5 sm:mb-2">
               Event Date
             </label>
             <input
               type="date"
-              id="eventDate"
+              id="popup-eventDate"
               value={formData.eventDate}
               onChange={(e) => handleInputChange('eventDate', e.target.value)}
-              className="w-full px-4 py-3 rounded-lg border border-stone-300 dark:border-white/20 bg-white dark:bg-brand-dark-bg text-brand-charcoal dark:text-white focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-colors"
+              className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-stone-300 dark:border-white/20 bg-white dark:bg-brand-dark-bg text-base text-brand-charcoal dark:text-white focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-colors"
             />
           </div>
 
           {/* Location */}
           <div>
-            <label htmlFor="location" className="block text-sm font-medium text-brand-charcoal dark:text-stone-300 mb-2">
+            <label htmlFor="popup-location" className="block text-sm font-medium text-brand-charcoal dark:text-stone-300 mb-1.5 sm:mb-2">
               Location
             </label>
             <select
-              id="location"
+              id="popup-location"
               value={formData.location}
               onChange={(e) => handleInputChange('location', e.target.value)}
-              className="w-full px-4 py-3 rounded-lg border border-stone-300 dark:border-white/20 bg-white dark:bg-brand-dark-bg text-brand-charcoal dark:text-white focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-colors"
+              className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-stone-300 dark:border-white/20 bg-white dark:bg-brand-dark-bg text-base text-brand-charcoal dark:text-white focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-colors"
             >
               <option value="">Select location</option>
               <option value="Dubai, UAE">Dubai, UAE</option>
@@ -239,7 +239,7 @@ const ScrollPopup: React.FC = () => {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl mt-6"
+            className="w-full bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold py-3 sm:py-3.5 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl mt-4 sm:mt-6 text-base sm:text-lg"
           >
             <svg
               className="w-5 h-5"
