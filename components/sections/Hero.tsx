@@ -58,7 +58,7 @@ const Hero: React.FC = () => {
           </div>
           
           <div className="relative">
-              <h1 className="text-5xl md:text-7xl xl:text-8xl font-serif font-bold leading-[1.0] text-brand-dark dark:text-white transition-colors">
+              <h1 className="text-5xl md:text-7xl xl:text-8xl font-bold leading-[1.0] text-brand-dark dark:text-white transition-colors">
                 <SplitText 
                     text="Hi, I'm Neha" 
                     className="block" 
@@ -103,8 +103,8 @@ const Hero: React.FC = () => {
             <Button size="lg" variant="secondary" className="shadow-2xl shadow-stone-400/20 dark:shadow-gold-900/20" onClick={() => navigate('/contact')}>
               Let's Get Started
             </Button>
-            <Button variant="outline" size="lg" onClick={() => navigate('/gallery')}>
-              View Gallery
+            <Button variant="outline" size="lg" onClick={() => navigate('/about')}>
+              About Me
             </Button>
           </div>
         </div>
