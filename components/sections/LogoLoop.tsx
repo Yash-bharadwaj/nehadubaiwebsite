@@ -61,19 +61,33 @@ const LogoLoop: React.FC = () => {
   const animationDuration = logos.length * 2.5;
 
   return (
-    <div className="relative z-20 overflow-hidden py-8 md:py-12">
+    <div className="relative z-20 overflow-hidden py-12 md:py-16 bg-brand-primary dark:bg-gradient-to-b dark:from-brand-dark-bg dark:via-brand-dark-surface dark:to-brand-dark-bg transition-colors">
+      {/* Gradient Overlays - Light & Dark Mode */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 right-0 w-[30%] h-[30%] bg-gold-200/15 dark:bg-gold-600/10 rounded-full blur-[100px] transition-opacity"></div>
+        <div className="absolute bottom-0 left-0 w-[30%] h-[30%] bg-purple-100/20 dark:bg-purple-900/15 rounded-full blur-[100px] transition-opacity"></div>
+      </div>
+
+      {/* Professional Pattern - Light & Dark Mode */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.02] dark:opacity-[0.035]">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'linear-gradient(30deg, transparent 48%, rgba(0,0,0,0.02) 49%, rgba(0,0,0,0.02) 51%, transparent 52%), linear-gradient(-30deg, transparent 48%, rgba(0,0,0,0.02) 49%, rgba(0,0,0,0.02) 51%, transparent 52%)',
+          backgroundSize: '70px 70px'
+        }}></div>
+      </div>
+
       {/* Heading */}
-      <div className="container mx-auto px-6 md:px-12 max-w-7xl mb-8 md:mb-12 text-center">
-        <span className="text-gold-600 dark:text-gold-400 text-sm tracking-widest uppercase font-bold mb-2 block">Trusted Partners</span>
-        <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-charcoal dark:text-white transition-colors">
+      <div className="relative z-10 container mx-auto px-6 md:px-12 max-w-7xl mb-10 md:mb-14 text-center">
+        <span className="text-gold-600 dark:text-gold-500 text-sm tracking-widest uppercase font-bold mb-2 block transition-colors">Trusted Partners</span>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-brand-charcoal dark:text-white transition-colors">
           Brands I've Worked With
         </h2>
       </div>
 
       <div className="relative">
         {/* Fade gradients */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-brand-primary dark:from-brand-dark-bg to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-brand-primary dark:from-brand-dark-bg to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-brand-primary dark:from-brand-dark-bg to-transparent z-10 pointer-events-none transition-colors" />
+        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-brand-primary dark:from-brand-dark-bg to-transparent z-10 pointer-events-none transition-colors" />
         
         {/* Scrolling container */}
         <div 
@@ -86,7 +100,7 @@ const LogoLoop: React.FC = () => {
           {duplicatedLogos.map((logo, index) => (
             <div
               key={`logo-${index}`}
-              className="flex-shrink-0 flex items-center justify-center group"
+              className="flex-shrink-0 flex items-center justify-center group p-4 rounded-lg bg-stone-100 dark:bg-white/5 hover:bg-stone-200 dark:hover:bg-white/10 transition-all duration-300"
               style={{ width: `${logoWidth}px`, height: '80px' }}
             >
               <img
@@ -95,6 +109,7 @@ const LogoLoop: React.FC = () => {
                 className="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300"
                 onError={(e) => {
                   console.error('Failed to load logo:', logo.src, logo.alt);
+                  (e.target as HTMLImageElement).style.display = 'none';
                 }}
               />
             </div>

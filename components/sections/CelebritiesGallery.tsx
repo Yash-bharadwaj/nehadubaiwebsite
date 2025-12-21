@@ -4,20 +4,20 @@ import React from "react";
 import { ParallaxScroll } from "@/components/ui/parallax-scroll";
 import whiteLogo from "../nehaWebsiteVideos/NehaWhileLogo.png";
 import blackLogo from "../nehaWebsiteVideos/NehaBlacklogo.png";
-import celebrities1 from "../picswithcelebrities/celebrities1.jpeg";
-import celebrities2 from "../picswithcelebrities/celebrities2.jpeg";
-import celebrities3 from "../picswithcelebrities/celebrities3.jpeg";
-import celebrities4 from "../picswithcelebrities/celebrities4.jpeg";
-import celebrities5 from "../picswithcelebrities/celebrities5.jpeg";
-import celebrities6 from "../picswithcelebrities/celebrities6.jpeg";
-import celebrities7 from "../picswithcelebrities/celebrities7.jpeg";
-import celebrities8 from "../picswithcelebrities/celebrities8.jpeg";
-import celebrities9 from "../picswithcelebrities/celebrities9.jpeg";
-import celebrities10 from "../picswithcelebrities/celebrities10.jpeg";
-import celebrities11 from "../picswithcelebrities/celebrities11.jpeg";
-import celebrities12 from "../picswithcelebrities/celebrities12.jpeg";
-import celebrities13 from "../picswithcelebrities/celebrities13.jpeg";
-import celebrities14 from "../picswithcelebrities/celebrities14.jpeg";
+import celebrities1 from "../picswithcelebrities/celebrity-01.jpeg";
+import celebrities2 from "../picswithcelebrities/celebrity-02.jpeg";
+import celebrities3 from "../picswithcelebrities/celebrity-03.jpeg";
+import celebrities4 from "../picswithcelebrities/celebrity-04.jpeg";
+import celebrities5 from "../picswithcelebrities/celebrity-05.jpeg";
+import celebrities6 from "../picswithcelebrities/celebrity-06.jpeg";
+import celebrities7 from "../picswithcelebrities/celebrity-07.jpeg";
+import celebrities8 from "../picswithcelebrities/celebrity-08.jpeg";
+import celebrities9 from "../picswithcelebrities/celebrity-09.jpeg";
+import celebrities10 from "../picswithcelebrities/celebrity-10.jpeg";
+import celebrities11 from "../picswithcelebrities/celebrity-11.jpeg";
+import celebrities12 from "../picswithcelebrities/celebrity-12.jpeg";
+import celebrities13 from "../picswithcelebrities/celebrity-13.jpeg";
+import celebrities14 from "../picswithcelebrities/celebrity-14.jpeg";
 
 export default function CelebritiesGallery() {
   const images = [

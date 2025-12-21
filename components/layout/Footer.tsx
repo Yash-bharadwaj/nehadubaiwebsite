@@ -60,16 +60,6 @@ const Footer: React.FC = () => {
               </svg>
             </a>
           </div>
-
-          {/* Right: Phone Number */}
-          <div className="text-center md:text-right">
-            <a 
-              href="tel:+971552574806" 
-              className="text-sm md:text-base text-stone-300 dark:text-stone-400 hover:text-gold-400 dark:hover:text-gold-400 transition-colors font-medium"
-            >
-              +971 55 257 4806
-            </a>
-          </div>
         </div>
 
         {/* Bottom: Copyright & Credit */}

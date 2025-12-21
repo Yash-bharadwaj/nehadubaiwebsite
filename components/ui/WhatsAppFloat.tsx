@@ -90,7 +90,7 @@ const WhatsAppFloat: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="text-lg sm:text-xl font-serif font-bold text-brand-charcoal dark:text-white">
-                    Hire Neha
+                    Let's Get Started
                   </h3>
                   <p className="text-xs sm:text-sm text-stone-500 dark:text-stone-400">
                     Let's create magic together

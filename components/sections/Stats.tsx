@@ -3,7 +3,7 @@ import SectionWrapper from '../layout/SectionWrapper';
 import SplitText from '../ui/SplitText';
 
 const stats = [
-  { label: "Events Hosted", value: 200, suffix: "+" },
+  { label: "Events Hosted", value: 500, suffix: "+" },
   { label: "Years Experience", value: 8, suffix: "+" },
   { label: "Happy Clients", value:100, suffix: "+" },
   { label: "Industries", value: 12, suffix: "+" },
