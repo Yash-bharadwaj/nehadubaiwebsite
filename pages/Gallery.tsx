@@ -201,42 +201,114 @@ const Gallery: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [selectedImage, filteredImages]);
 
+  const getCategoryIcon = (category: Category) => {
+    switch (category) {
+      case 'All':
+        return (
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 md:w-5 md:h-5">
+            <path fillRule="evenodd" d="M3 2.25a.75.75 0 00-.75.75v18a.75.75 0 00.75.75h18a.75.75 0 00.75-.75V3a.75.75 0 00-.75-.75H3zm6 12a.75.75 0 01.75-.75h4.5a.75.75 0 01.75.75v4.5a.75.75 0 01-.75.75h-4.5a.75.75 0 01-.75-.75v-4.5zM6 6.75A.75.75 0 016.75 6h10.5a.75.75 0 01.75.75v4.5a.75.75 0 01-.75.75H6.75a.75.75 0 01-.75-.75v-4.5z" clipRule="evenodd" />
+          </svg>
+        );
+      case 'My Photos':
+        return (
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 md:w-5 md:h-5">
+            <path fillRule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.06zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clipRule="evenodd" />
+          </svg>
+        );
+      case 'Weddings':
+        return (
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 md:w-5 md:h-5">
+            <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+          </svg>
+        );
+      case 'Private Events':
+        return (
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 md:w-5 md:h-5">
+            <path fillRule="evenodd" d="M12 1.5a5.25 5.25 0 00-5.25 5.25v3a3 3 0 00-3 3v6.75a3 3 0 003 3h10.5a3 3 0 003-3v-6.75a3 3 0 00-3-3v-3c0-2.9-2.35-5.25-5.25-5.25zm3.75 8.25v-3a3.75 3.75 0 10-7.5 0v3h7.5z" clipRule="evenodd" />
+          </svg>
+        );
+      case 'Community Events':
+        return (
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 md:w-5 md:h-5">
+            <path d="M4.5 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM14.25 8.625a3.375 3.375 0 116.75 0 3.375 3.375 0 01-6.75 0zM1.5 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM17.25 19.125l-.001.144a2.25 2.25 0 01-.233.96 10.088 10.088 0 005.06-1.01.75.75 0 00.42-.643 4.875 4.875 0 00-6.957-4.611 8.586 8.586 0 011.71 5.157v.003z" />
+          </svg>
+        );
+      case 'Corporate':
+        return (
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 md:w-5 md:h-5">
+            <path fillRule="evenodd" d="M3 2.25a.75.75 0 00-.75.75v18a.75.75 0 00.75.75h18a.75.75 0 00.75-.75V3a.75.75 0 00-.75-.75H3zm6 12a.75.75 0 01.75-.75h4.5a.75.75 0 01.75.75v4.5a.75.75 0 01-.75.75h-4.5a.75.75 0 01-.75-.75v-4.5zM6 6.75A.75.75 0 016.75 6h10.5a.75.75 0 01.75.75v4.5a.75.75 0 01-.75.75H6.75a.75.75 0 01-.75-.75v-4.5z" clipRule="evenodd" />
+          </svg>
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <main className="flex flex-col gap-0 min-h-screen">
-      <SectionWrapper className="pt-32 pb-12 md:pb-16">
-        <div className="text-center mb-12 md:mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-gold-50 via-amber-50 to-gold-100 dark:from-gold-950/40 dark:via-amber-950/40 dark:to-gold-900/40 border border-gold-200/50 dark:border-gold-800/30 rounded-full w-fit mx-auto mb-6">
+      <SectionWrapper className="pt-20 md:pt-32 pb-8 md:pb-12">
+        <div className="text-center mb-8 md:mb-12">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-gold-50 via-amber-50 to-gold-100 dark:from-gold-950/40 dark:via-amber-950/40 dark:to-gold-900/40 border border-gold-200/50 dark:border-gold-800/30 rounded-full w-fit mx-auto mb-4 md:mb-6">
             <div className="w-2 h-2 rounded-full bg-gradient-to-r from-gold-500 to-amber-500 animate-pulse"></div>
             <span className="text-xs font-semibold bg-gradient-to-r from-gold-700 via-amber-700 to-gold-600 dark:from-gold-300 dark:via-amber-300 dark:to-gold-400 bg-clip-text text-transparent uppercase tracking-wider">Gallery</span>
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-4 text-brand-charcoal dark:text-white transition-colors">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold mb-3 md:mb-4 text-brand-charcoal dark:text-white transition-colors">
             Visual <span className="bg-gradient-to-r from-gold-600 via-amber-600 to-gold-500 dark:from-gold-400 dark:via-amber-400 dark:to-gold-300 bg-clip-text text-transparent">Journey</span>
           </h1>
-          <p className="text-stone-600 dark:text-stone-400 text-lg max-w-2xl mx-auto transition-colors">
+          <p className="text-stone-600 dark:text-stone-400 text-base md:text-lg max-w-2xl mx-auto transition-colors px-4">
             A collection of memorable moments from events, celebrations, and special occasions
           </p>
         </div>
 
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-12">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={`px-6 py-3 rounded-full font-medium text-sm md:text-base transition-all duration-300 ${
-                selectedCategory === category
-                  ? 'bg-gradient-to-r from-gold-500 to-amber-500 text-white shadow-lg shadow-gold-500/30 scale-105'
-                  : 'bg-white dark:bg-brand-dark-surface text-stone-600 dark:text-stone-400 border-2 border-stone-200 dark:border-white/10 hover:border-gold-300 dark:hover:border-gold-700 hover:text-gold-600 dark:hover:text-gold-400'
-              }`}
-            >
-              {category}
-              {category !== 'All' && (
-                <span className="ml-2 text-xs opacity-75">
-                  ({allImages.filter(img => img.category === category).length})
-                </span>
-              )}
-            </button>
-          ))}
+        {/* Category Filter - Mobile: Horizontal Scroll, Desktop: Wrap */}
+        <div className="mb-8 md:mb-12">
+          {/* Mobile: Horizontal Scrollable */}
+          <div className="md:hidden overflow-x-auto pb-2 -mx-6 px-6 scrollbar-hide">
+            <div className="flex gap-2 min-w-max">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setSelectedCategory(category)}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-full font-medium text-xs whitespace-nowrap transition-all duration-300 ${
+                    selectedCategory === category
+                      ? 'bg-gradient-to-r from-gold-500 to-amber-500 text-white shadow-lg shadow-gold-500/30'
+                      : 'bg-white dark:bg-brand-dark-surface text-stone-600 dark:text-stone-400 border border-stone-200 dark:border-white/10'
+                  }`}
+                >
+                  {getCategoryIcon(category)}
+                  <span>{category}</span>
+                  {category !== 'All' && (
+                    <span className="text-[10px] opacity-75">
+                      ({allImages.filter(img => img.category === category).length})
+                    </span>
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop: Wrap Layout */}
+          <div className="hidden md:flex flex-wrap justify-center gap-3 lg:gap-4">
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setSelectedCategory(category)}
+                className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium text-base transition-all duration-300 ${
+                  selectedCategory === category
+                    ? 'bg-gradient-to-r from-gold-500 to-amber-500 text-white shadow-lg shadow-gold-500/30 scale-105'
+                    : 'bg-white dark:bg-brand-dark-surface text-stone-600 dark:text-stone-400 border-2 border-stone-200 dark:border-white/10 hover:border-gold-300 dark:hover:border-gold-700 hover:text-gold-600 dark:hover:text-gold-400'
+                }`}
+              >
+                {getCategoryIcon(category)}
+                <span>{category}</span>
+                {category !== 'All' && (
+                  <span className="text-xs opacity-75">
+                    ({allImages.filter(img => img.category === category).length})
+                  </span>
+                )}
+              </button>
+            ))}
+          </div>
         </div>
       </SectionWrapper>
 
