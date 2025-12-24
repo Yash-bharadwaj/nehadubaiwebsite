@@ -7,6 +7,7 @@ import video1 from '../nehaWebsiteVideos/testimonial-murali-krishnan.mp4';
 import video2 from '../nehaWebsiteVideos/testimonial-ilhaam-maniar.mp4';
 import video3 from '../nehaWebsiteVideos/testimonial-ashok-kalra.mp4';
 import video4 from '../nehaWebsiteVideos/testimonial1.mp4';
+import video5 from '../nehaWebsiteVideos/masreeqtestimonial.mp4';
 
 const personaVideos = [
   { 
@@ -17,18 +18,24 @@ const personaVideos = [
   },
   { 
     id: 2, 
+    src: video5, 
+    name: 'Masreeq Leadership Team',
+    designation: 'Mashreq Bank'
+  },
+  { 
+    id: 3, 
     src: video1, 
     name: 'Mr. Murali Krishnan',
     designation: 'CHRO, Jumbo Group'
   },
   { 
-    id: 3, 
+    id: 4, 
     src: video2, 
     name: 'Ilhaam Maniar',
     designation: 'Manager - CMBC, CROWE UAE'
   },
   { 
-    id: 4, 
+    id: 5, 
     src: video3, 
     name: 'Mr. Ashok Kalra',
     designation: 'Owner, Lavang Fine Dining Restaurant, Downtown Dubai'
@@ -66,7 +73,7 @@ const PersonaVideoCarousel: React.FC = () => {
       if (video) {
         // Pause all videos first
         Object.values(videoRefs.current).forEach(v => {
-          if (v && v !== video) {
+          if (v && v !== video && v instanceof HTMLVideoElement) {
             v.pause();
           }
         });
@@ -95,7 +102,7 @@ const PersonaVideoCarousel: React.FC = () => {
   // Pause other videos when a new one starts playing
   useEffect(() => {
     Object.entries(videoRefs.current).forEach(([id, video]) => {
-      if (video && Number(id) !== playingVideo) {
+      if (video && Number(id) !== playingVideo && video instanceof HTMLVideoElement) {
         video.pause();
       }
     });
