@@ -160,50 +160,45 @@ const PersonaVideoCarousel: React.FC = () => {
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto text-center relative z-10 mb-12">
-        <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-gold-50 via-amber-50 to-gold-100 dark:from-gold-950/40 dark:via-amber-950/40 dark:to-gold-900/40 border border-gold-200/50 dark:border-gold-800/30 rounded-full w-fit mx-auto mb-8">
-          <div className="w-2 h-2 rounded-full bg-gradient-to-r from-gold-500 to-amber-500 animate-pulse"></div>
-          <span className="text-xs font-semibold bg-gradient-to-r from-gold-700 via-amber-700 to-gold-600 dark:from-gold-300 dark:via-amber-300 dark:to-gold-400 bg-clip-text text-transparent uppercase tracking-wider">The Persona</span>
-        </div>
-        
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 text-brand-charcoal dark:text-white transition-colors">
-          More than just a <span className="bg-gradient-to-r from-gold-600 via-amber-600 to-gold-500 dark:from-gold-400 dark:via-amber-400 dark:to-gold-300 bg-clip-text text-transparent">voice</span>
-        </h2>
-        
-        <div className="mb-8">
-          <p className="text-xl md:text-2xl font-light italic text-stone-700 dark:text-stone-300 mb-8 leading-relaxed">
-            "The stage is never silent when Neha is around."
+      {/* Video Carousel Section with Heading */}
+      <div className="relative z-10 max-w-7xl mx-auto mb-12">
+        {/* Heading */}
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-gold-50 via-amber-50 to-gold-100 dark:from-gold-950/40 dark:via-amber-950/40 dark:to-gold-900/40 border border-gold-200/50 dark:border-gold-800/30 rounded-full w-fit mx-auto mb-6">
+            <div className="w-2 h-2 rounded-full bg-gradient-to-r from-gold-500 to-amber-500 animate-pulse"></div>
+            <span className="text-xs font-semibold bg-gradient-to-r from-gold-700 via-amber-700 to-gold-600 dark:from-gold-300 dark:via-amber-300 dark:to-gold-400 bg-clip-text text-transparent uppercase tracking-wider">Video Testimonials</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-4 text-brand-charcoal dark:text-white transition-colors">
+            Hear From <span className="bg-gradient-to-r from-gold-600 via-amber-600 to-gold-500 dark:from-gold-400 dark:via-amber-400 dark:to-gold-300 bg-clip-text text-transparent">Clients</span>
+          </h2>
+          <p className="text-stone-600 dark:text-stone-400 text-lg max-w-2xl mx-auto">
+            Real experiences from those who've worked with Neha
           </p>
         </div>
-        
-        <p className="text-lg md:text-xl text-stone-600 dark:text-stone-400 leading-relaxed max-w-3xl mx-auto">
-          With a unique blend of spontaneous wit and structured eloquence, Neha transforms standard agendas into engaging experiences. Whether it's a high-stakes corporate boardroom, a massive award ceremony, or a vibrant ballroom wedding, she commands the room with grace and keeps the energy alive, even during the quietest transitions.
-        </p>
-      </div>
 
-      {/* Video Carousel */}
-      <div className="relative z-10 max-w-7xl mx-auto">
-        {/* Navigation Buttons - Positioned on sides */}
-        <button 
-          onClick={scrollPrev}
-          className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-14 h-14 rounded-full border-2 border-gold-200/50 dark:border-gold-800/30 bg-white dark:bg-brand-dark-surface shadow-xl flex items-center justify-center hover:bg-gradient-to-r hover:from-gold-500 hover:to-amber-500 hover:border-gold-500 hover:text-white text-brand-charcoal dark:text-white transition-all duration-300 hover:scale-110 active:scale-95"
-          aria-label="Previous video"
-          type="button"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-6 h-6">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-          </svg>
-        </button>
-        <button 
-          onClick={scrollNext}
-          className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-14 h-14 rounded-full border-2 border-gold-200/50 dark:border-gold-800/30 bg-white dark:bg-brand-dark-surface shadow-xl flex items-center justify-center hover:bg-gradient-to-r hover:from-gold-500 hover:to-amber-500 hover:border-gold-500 hover:text-white text-brand-charcoal dark:text-white transition-all duration-300 hover:scale-110 active:scale-95"
-          aria-label="Next video"
-          type="button"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-6 h-6">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-          </svg>
-        </button>
+        {/* Video Carousel */}
+        <div className="relative">
+          {/* Navigation Buttons - Positioned on sides */}
+          <button 
+            onClick={scrollPrev}
+            className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-14 h-14 rounded-full border-2 border-gold-200/50 dark:border-gold-800/30 bg-white dark:bg-brand-dark-surface shadow-xl flex items-center justify-center hover:bg-gradient-to-r hover:from-gold-500 hover:to-amber-500 hover:border-gold-500 hover:text-white text-brand-charcoal dark:text-white transition-all duration-300 hover:scale-110 active:scale-95"
+            aria-label="Previous video"
+            type="button"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-6 h-6">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+          </button>
+          <button 
+            onClick={scrollNext}
+            className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-14 h-14 rounded-full border-2 border-gold-200/50 dark:border-gold-800/30 bg-white dark:bg-brand-dark-surface shadow-xl flex items-center justify-center hover:bg-gradient-to-r hover:from-gold-500 hover:to-amber-500 hover:border-gold-500 hover:text-white text-brand-charcoal dark:text-white transition-all duration-300 hover:scale-110 active:scale-95"
+            aria-label="Next video"
+            type="button"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-6 h-6">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+          </button>
 
         {/* Carousel Container */}
         <div className="overflow-hidden px-12 md:px-16" ref={emblaRef}>
@@ -304,6 +299,28 @@ const PersonaVideoCarousel: React.FC = () => {
             })}
           </div>
         </div>
+        </div>
+      </div>
+
+      <div className="max-w-4xl mx-auto text-center relative z-10 mt-12">
+        <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-gold-50 via-amber-50 to-gold-100 dark:from-gold-950/40 dark:via-amber-950/40 dark:to-gold-900/40 border border-gold-200/50 dark:border-gold-800/30 rounded-full w-fit mx-auto mb-8">
+          <div className="w-2 h-2 rounded-full bg-gradient-to-r from-gold-500 to-amber-500 animate-pulse"></div>
+          <span className="text-xs font-semibold bg-gradient-to-r from-gold-700 via-amber-700 to-gold-600 dark:from-gold-300 dark:via-amber-300 dark:to-gold-400 bg-clip-text text-transparent uppercase tracking-wider">The Persona</span>
+        </div>
+        
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 text-brand-charcoal dark:text-white transition-colors">
+          More than just a <span className="bg-gradient-to-r from-gold-600 via-amber-600 to-gold-500 dark:from-gold-400 dark:via-amber-400 dark:to-gold-300 bg-clip-text text-transparent">voice</span>
+        </h2>
+        
+        <div className="mb-8">
+          <p className="text-xl md:text-2xl font-light italic text-stone-700 dark:text-stone-300 mb-8 leading-relaxed">
+            "The stage is never silent when Neha is around."
+          </p>
+        </div>
+        
+        <p className="text-lg md:text-xl text-stone-600 dark:text-stone-400 leading-relaxed max-w-3xl mx-auto">
+          With a unique blend of spontaneous wit and structured eloquence, Neha transforms standard agendas into engaging experiences. Whether it's a high-stakes corporate boardroom, a massive award ceremony, or a vibrant ballroom wedding, she commands the room with grace and keeps the energy alive, even during the quietest transitions.
+        </p>
       </div>
     </SectionWrapper>
   );

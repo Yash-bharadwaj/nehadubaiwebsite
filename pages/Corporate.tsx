@@ -1,10 +1,9 @@
 import React from 'react';
 import SectionWrapper from '../components/layout/SectionWrapper';
 import LogoLoop from '../components/sections/LogoLoop';
-import Testimonials from '../components/sections/Testimonials';
 import CorporateBannerSlider from '../components/sections/CorporateBannerSlider';
 import CorporatePhotoCarousel from '../components/sections/CorporatePhotoCarousel';
-import VideoCarousel from '../components/sections/VideoCarousel';
+import CorporateVideoCarousel from '../components/sections/CorporateVideoCarousel';
 import nehaImage from '../components/ExperiencePhotos/481274205_645326694678849_7226011552932312246_n.jpg';
 
 const Corporate: React.FC = () => {
@@ -47,7 +46,7 @@ const Corporate: React.FC = () => {
           <path fillRule="evenodd" d="M9.315 7.584C12.195 3.883 16.695 1.5 21.75 1.5a.75.75 0 01.75.75c0 5.056-2.383 9.555-6.084 12.436h.003c-1.228.956-2.64 1.776-4.174 2.396a7.518 7.518 0 01-2.92.589c-1.267 0-2.513-.309-3.645-.904l-1.637 1.638a.75.75 0 01-1.06 0l-1.5-1.5a.75.75 0 010-1.06l1.637-1.637c-.595-1.132-.904-2.38-.904-3.645 0-1.025.2-2.022.589-2.92 .62-1.534 1.44-2.946 2.396-4.174zM3.86 17.515c.67.24 1.4.375 2.14.375.313 0 .624-.025.932-.073l-3.328-3.328c-.048.308-.073.619-.073.931 0 .74.135 1.47.375 2.14.225.626.069 1.341-.444 1.854l-1.5 1.5a.75.75 0 001.06 1.06l1.5-1.5c.513-.513 1.228-.669 1.854-.444l-.216-.215z" clipRule="evenodd" />
         </svg>
       ),
-      features: ['Product Reveals', 'Brand Launches', 'Innovation Showcases', 'Market Introductions']
+      features: ['Product Reveals', 'Team Building', 'Innovation Showcases', 'Market Introductions']
     },
     {
       title: 'Annual Meetings',
@@ -76,9 +75,6 @@ const Corporate: React.FC = () => {
     <main className="flex flex-col gap-0">
       {/* Banner Slider */}
       <CorporateBannerSlider />
-
-      {/* Photo Carousel */}
-      <CorporatePhotoCarousel />
 
       {/* About Neha Section */}
       <SectionWrapper className="py-20 md:py-24 bg-white dark:bg-brand-dark-bg relative overflow-hidden">
@@ -159,6 +155,12 @@ const Corporate: React.FC = () => {
           </div>
         </div>
       </SectionWrapper>
+
+      {/* Video Carousel Section */}
+      <CorporateVideoCarousel />
+
+      {/* Photo Carousel */}
+      <CorporatePhotoCarousel />
 
       {/* Corporate Stats Section */}
       <section className="relative bg-gradient-to-br from-orange-600 via-red-600 to-orange-500 dark:from-orange-800 dark:via-red-800 dark:to-orange-700 text-white overflow-hidden">
@@ -250,14 +252,6 @@ const Corporate: React.FC = () => {
       {/* Scrolling Brands Section */}
       <div className="bg-gradient-to-br from-slate-50 via-orange-50/20 to-red-50/30 dark:from-slate-950 dark:via-orange-950/10 dark:to-red-950/10">
         <LogoLoop />
-      </div>
-
-      {/* Video Carousel Section */}
-      <VideoCarousel />
-
-      {/* Testimonials Section */}
-      <div className="bg-white dark:bg-brand-dark-bg">
-        <Testimonials />
       </div>
 
       {/* Why Choose Section */}

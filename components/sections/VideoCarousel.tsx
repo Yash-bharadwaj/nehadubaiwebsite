@@ -24,13 +24,12 @@ const videos = videoSources.map((src, index) => ({
   category: categories[index % categories.length],
 }));
 
-// Duplicate videos for seamless infinite scroll
-const duplicatedVideos = [...videos, ...videos, ...videos];
+// Use only the 7 videos, no duplication
 
 const VideoCarousel: React.FC = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: 'start',
-    loop: false, // We'll handle looping manually for seamless infinite scroll
+    loop: false,
     skipSnaps: false,
     dragFree: false,
   });
@@ -39,138 +38,6 @@ const VideoCarousel: React.FC = () => {
   const [mutedVideos, setMutedVideos] = useState<{ [key: string]: boolean }>({});
   const videoRefs = useRef<{ [key: string]: HTMLVideoElement | null }>({});
 
-  // Initialize scroll position to middle set for seamless infinite scroll
-  useEffect(() => {
-    if (!emblaApi) return;
-
-    const container = emblaApi.containerNode() as HTMLElement;
-    if (!container) return;
-
-    // Calculate card width
-    const getCardWidth = () => window.innerWidth >= 768 ? 320 : 280;
-    const gap = 24;
-    const cardWithGap = getCardWidth() + gap;
-    const startPosition = videos.length * cardWithGap;
-
-    // Set initial scroll position to middle set
-    const initScroll = () => {
-      if (container.scrollWidth > container.clientWidth) {
-        container.scrollLeft = startPosition;
-      } else {
-        // Wait for layout
-        setTimeout(initScroll, 100);
-      }
-    };
-
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        setTimeout(initScroll, 200);
-      });
-    });
-
-    // Handle infinite scroll on manual scroll
-    const handleScroll = () => {
-      const getCardWidth = () => window.innerWidth >= 768 ? 320 : 280;
-      const gap = 24;
-      const cardWithGap = getCardWidth() + gap;
-      const middleStartPosition = videos.length * cardWithGap;
-      const maxScroll = container.scrollWidth - container.clientWidth;
-      const currentScroll = container.scrollLeft;
-      const threshold = 100;
-
-      // If scrolled to the end, jump to middle section
-      if (currentScroll >= maxScroll - threshold) {
-        container.style.scrollBehavior = 'auto';
-        container.scrollLeft = middleStartPosition;
-        setTimeout(() => {
-          container.style.scrollBehavior = 'smooth';
-        }, 10);
-      }
-      // If scrolled to the beginning, jump to middle section
-      else if (currentScroll <= threshold) {
-        container.style.scrollBehavior = 'auto';
-        container.scrollLeft = middleStartPosition;
-        setTimeout(() => {
-          container.style.scrollBehavior = 'smooth';
-        }, 10);
-      }
-    };
-
-    container.addEventListener('scroll', handleScroll, { passive: true });
-
-    return () => {
-      container.removeEventListener('scroll', handleScroll);
-    };
-  }, [emblaApi]);
-
-  // Auto-scroll functionality - smooth continuous scroll with infinite loop
-  useEffect(() => {
-    if (!emblaApi) return;
-
-    let scrollInterval: NodeJS.Timeout;
-    let isPaused = false;
-    
-    const getCardWidth = () => window.innerWidth >= 768 ? 320 : 280;
-    const gap = 24;
-    const cardWithGap = getCardWidth() + gap;
-    const middleStartPosition = videos.length * cardWithGap;
-    
-    const startAutoScroll = () => {
-      scrollInterval = setInterval(() => {
-        if (!isPaused && emblaApi) {
-          const container = emblaApi.containerNode() as HTMLElement;
-          if (container && container.scrollWidth > container.clientWidth) {
-            const currentScroll = container.scrollLeft;
-            const maxScroll = container.scrollWidth - container.clientWidth;
-            
-            // If near the end, jump to middle section seamlessly
-            if (currentScroll >= maxScroll - 10) {
-              container.style.scrollBehavior = 'auto';
-              container.scrollLeft = middleStartPosition;
-              setTimeout(() => {
-                container.style.scrollBehavior = 'smooth';
-              }, 10);
-            } 
-            // If near the beginning, jump to middle section seamlessly
-            else if (currentScroll <= 10) {
-              container.style.scrollBehavior = 'auto';
-              container.scrollLeft = middleStartPosition;
-              setTimeout(() => {
-                container.style.scrollBehavior = 'smooth';
-              }, 10);
-            } 
-            // Normal smooth scroll
-            else {
-              container.scrollLeft += 0.5;
-            }
-          }
-        }
-      }, 16); // ~60fps for smooth scrolling
-    };
-
-    // Start after a short delay to ensure carousel is ready
-    const initTimer = setTimeout(() => {
-      startAutoScroll();
-    }, 1000);
-
-    // Pause on user interaction
-    const handlePointerDown = () => {
-      isPaused = true;
-      if (scrollInterval) clearInterval(scrollInterval);
-      setTimeout(() => {
-        isPaused = false;
-        startAutoScroll();
-      }, 5000);
-    };
-
-    emblaApi.on('pointerDown', handlePointerDown);
-
-    return () => {
-      clearTimeout(initTimer);
-      if (scrollInterval) clearInterval(scrollInterval);
-      emblaApi.off('pointerDown', handlePointerDown);
-    };
-  }, [emblaApi]);
 
   // Auto-play all videos on mount
   useEffect(() => {
@@ -274,8 +141,8 @@ const VideoCarousel: React.FC = () => {
       <div className="w-full overflow-hidden">
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="flex gap-6 px-6 md:px-12 pb-8 no-scrollbar">
-            {duplicatedVideos.map((video, index) => {
-              const uniqueId = `${video.id}-${index}`;
+            {videos.map((video) => {
+              const uniqueId = `video-${video.id}`;
               const isPlaying = playingVideos[uniqueId] || false;
               const isMuted = mutedVideos[uniqueId] !== false;
               

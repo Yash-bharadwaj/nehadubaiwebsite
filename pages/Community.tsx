@@ -1,9 +1,9 @@
 import React from 'react';
 import SectionWrapper from '../components/layout/SectionWrapper';
 import LogoLoop from '../components/sections/LogoLoop';
-import Testimonials from '../components/sections/Testimonials';
 import CommunityBannerSlider from '../components/sections/CommunityBannerSlider';
 import CommunityPhotoCarousel from '../components/sections/CommunityPhotoCarousel';
+import CommunityVideoCarousel from '../components/sections/CommunityVideoCarousel';
 import CircularText from '../components/ui/CircularText';
 import nehaImage from '../components/Community Events/community-event-04.jpg';
 
@@ -77,9 +77,6 @@ const Community: React.FC = () => {
     <main className="flex flex-col gap-0">
       {/* Banner Slider */}
       <CommunityBannerSlider />
-
-      {/* Photo Carousel */}
-      <CommunityPhotoCarousel />
 
       {/* About Neha Section */}
       <SectionWrapper className="py-20 md:py-24 bg-white dark:bg-brand-dark-bg relative overflow-hidden">
@@ -166,6 +163,12 @@ const Community: React.FC = () => {
           </div>
         </div>
       </SectionWrapper>
+
+      {/* Video Carousel Section */}
+      <CommunityVideoCarousel />
+
+      {/* Photo Carousel */}
+      <CommunityPhotoCarousel />
 
       {/* Stats Section */}
       <section className="relative bg-gradient-to-br from-emerald-600 via-teal-600 to-emerald-500 dark:from-emerald-800 dark:via-teal-800 dark:to-emerald-700 text-white overflow-hidden">
@@ -259,10 +262,6 @@ const Community: React.FC = () => {
         <LogoLoop />
       </div>
 
-      {/* Testimonials Section */}
-      <div className="bg-white dark:bg-brand-dark-bg">
-        <Testimonials />
-      </div>
 
       {/* Why Choose Section */}
       <SectionWrapper className="py-20 bg-gradient-to-br from-emerald-50/50 via-white to-teal-50/30 dark:from-emerald-950/20 dark:via-brand-dark-bg dark:to-teal-950/20">

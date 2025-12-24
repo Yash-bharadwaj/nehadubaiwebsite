@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import ScrollToTop from './ScrollToTop';
 import WhatsAppFloat from '../ui/WhatsAppFloat';
 import SocialFloat from '../ui/SocialFloat';
 import ScrollPopup from '../ui/ScrollPopup';
@@ -55,6 +56,7 @@ const Layout: React.FC = () => {
       </div>
 
       <div className="relative z-10">
+        <ScrollToTop />
         <Navbar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
         <Outlet />
         <Footer />

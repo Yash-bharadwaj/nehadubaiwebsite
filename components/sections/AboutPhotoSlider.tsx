@@ -25,8 +25,8 @@ const slides = [
   },
   {
     image: moment4,
-    title: 'Celebrity Engagements',
-    subtitle: 'Working alongside international stars',
+    title: 'Corporate Functions',
+    subtitle: 'Hosting prestigious corporate events and business gatherings',
   },
   {
     image: moment5,
@@ -35,8 +35,8 @@ const slides = [
   },
   {
     image: moment6,
-    title: 'Private Gatherings',
-    subtitle: 'Intimate celebrations with personal touch',
+    title: 'Corporate Events',
+    subtitle: 'Professional corporate gatherings and business functions',
   },
   {
     image: moment7,
@@ -45,13 +45,13 @@ const slides = [
   },
   {
     image: moment8,
-    title: 'Brand Launches',
-    subtitle: 'Excitement and product focus',
+    title: 'Team Building',
+    subtitle: 'Fostering collaboration and team spirit',
   },
   {
     image: moment9,
-    title: 'Cultural Festivals',
-    subtitle: 'Celebrating diversity and tradition',
+    title: 'Corporate Conferences',
+    subtitle: 'Leading professional conferences and business summits',
   },
   {
     image: moment10,

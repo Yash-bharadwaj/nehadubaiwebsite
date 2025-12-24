@@ -50,8 +50,8 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <SectionWrapper id="contact" className="pb-16">
-      <div className="relative rounded-3xl overflow-hidden p-4 sm:p-8 md:p-20 text-center border border-white/50 dark:border-white/10 bg-white/40 dark:bg-brand-dark-surface/40 backdrop-blur-xl shadow-xl shadow-stone-200/50 dark:shadow-black/50 transition-colors">
+    <SectionWrapper id="contact" className="py-12 md:py-16 flex items-center justify-center min-h-[80vh]">
+      <div className="relative rounded-3xl overflow-hidden p-4 sm:p-8 md:p-20 text-center border border-white/50 dark:border-white/10 bg-white/40 dark:bg-brand-dark-surface/40 backdrop-blur-xl shadow-xl shadow-stone-200/50 dark:shadow-black/50 transition-colors w-full max-w-4xl mx-auto">
         {/* Background Gradients */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-rose-100/50 dark:bg-purple-900/20 blur-[120px] rounded-full pointer-events-none transition-colors"></div>
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gold-100/50 dark:bg-gold-600/10 blur-[100px] rounded-full pointer-events-none transition-colors"></div>
@@ -126,14 +126,6 @@ const Contact: React.FC = () => {
                 
                 <Button type="submit" className="w-full text-base sm:text-lg font-bold shadow-lg shadow-gold-500/20 py-3 sm:py-4" size="lg" variant="secondary">Submit Inquiry</Button>
             </form>
-            
-            <div className="mt-8 flex justify-center gap-8 text-sm text-stone-500 dark:text-stone-400">
-                <a href="#" className="hover:text-brand-charcoal dark:hover:text-white transition-colors">WhatsApp</a>
-                <span className="w-1 h-1 rounded-full bg-stone-300 dark:bg-white/20 self-center"></span>
-                <a href="#" className="hover:text-brand-charcoal dark:hover:text-white transition-colors">Email</a>
-                <span className="w-1 h-1 rounded-full bg-stone-300 dark:bg-white/20 self-center"></span>
-                <a href="#" className="hover:text-brand-charcoal dark:hover:text-white transition-colors">Instagram</a>
-            </div>
         </div>
       </div>
     </SectionWrapper>

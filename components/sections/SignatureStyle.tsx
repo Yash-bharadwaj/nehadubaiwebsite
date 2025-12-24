@@ -49,6 +49,7 @@ const SignatureStyle: React.FC = () => {
   const navigate = useNavigate();
 
   const handleCardClick = (path: string) => {
+    window.scrollTo(0, 0);
     navigate(path);
   };
 

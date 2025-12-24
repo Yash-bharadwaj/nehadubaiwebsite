@@ -107,7 +107,7 @@ const AboutHero: React.FC = () => {
 
             <div className="space-y-6 text-lg md:text-xl leading-relaxed text-stone-600 dark:text-stone-300 transition-colors">
               <p className="text-stone-700 dark:text-stone-200">
-                Neha Dixit is a distinguished emcee with over <span className="font-semibold text-brand-charcoal dark:text-white">8 years of experience</span>, hosting prestigious events across the UAE and internationally. With a portfolio of <span className="font-semibold text-brand-charcoal dark:text-white">500+ curated events</span>, she has led celebrity engagements, high-end corporate functions, elegant weddings, and exclusive private gatherings.
+                Neha Dixit is a distinguished emcee with over <span className="font-semibold text-brand-charcoal dark:text-white">8 years of experience</span>, hosting prestigious events across the UAE and internationally. With a portfolio of <span className="font-semibold text-brand-charcoal dark:text-white">500+ curated events</span>, she has led celebrity engagements, high-end corporate functions, elegant weddings, and exclusive corporate events.
               </p>
               <p className="text-stone-600 dark:text-stone-300">
                 Renowned for her <span className="font-semibold text-brand-charcoal dark:text-white">sophistication, subtle wit, and commanding stage presence</span>, Neha elevates every event she hosts. Her meticulous attention to detail and commitment to excellence have earned her a loyal clientele, with many choosing her time and again for unforgettable, seamless experiences.

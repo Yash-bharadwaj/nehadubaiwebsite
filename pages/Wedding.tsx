@@ -2,9 +2,9 @@ import React from 'react';
 import SectionWrapper from '../components/layout/SectionWrapper';
 import Button from '../components/ui/Button';
 import LogoLoop from '../components/sections/LogoLoop';
-import Testimonials from '../components/sections/Testimonials';
 import WeddingBannerSlider from '../components/sections/WeddingBannerSlider';
 import WeddingPhotoCarousel from '../components/sections/WeddingPhotoCarousel';
+import WeddingVideoCarousel from '../components/sections/WeddingVideoCarousel';
 import CircularText from '../components/ui/CircularText';
 import nehaImage from '../components/weddings/wedding-05.jpg';
 
@@ -143,9 +143,6 @@ const Wedding: React.FC = () => {
     <main className="flex flex-col gap-0">
       {/* Banner Slider */}
       <WeddingBannerSlider />
-
-      {/* Photo Carousel */}
-      <WeddingPhotoCarousel />
 
       {/* About Neha Section */}
       <SectionWrapper className="py-20 md:py-24 bg-white dark:bg-brand-dark-bg relative overflow-hidden">
@@ -415,6 +412,12 @@ const Wedding: React.FC = () => {
         </div>
       </SectionWrapper>
 
+      {/* Video Carousel Section */}
+      <WeddingVideoCarousel />
+
+      {/* Photo Carousel */}
+      <WeddingPhotoCarousel />
+
       {/* Services Section */}
       <SectionWrapper id="services" className="py-20 bg-white dark:bg-brand-dark-bg relative overflow-hidden">
         {/* Traditional Pattern Background */}
@@ -574,10 +577,6 @@ const Wedding: React.FC = () => {
         <LogoLoop />
       </div>
 
-      {/* Testimonials Section */}
-      <div className="bg-white dark:bg-brand-dark-bg">
-        <Testimonials />
-      </div>
 
       {/* Why Choose Section */}
       <SectionWrapper className="py-20 bg-gradient-to-br from-rose-50/50 via-white to-pink-50/30 dark:from-rose-950/20 dark:via-brand-dark-bg dark:to-pink-950/20">

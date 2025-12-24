@@ -1,26 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import SectionWrapper from '../components/layout/SectionWrapper';
-
-// Import My Photos
-import myPhoto1 from '../components/My Photos/my-photo-01.jpg';
-import myPhoto2 from '../components/My Photos/my-photo-02.jpg';
-import myPhoto3 from '../components/My Photos/my-photo-03.jpg';
-import myPhoto4 from '../components/My Photos/my-photo-04.jpg';
-import myPhoto5 from '../components/My Photos/my-photo-05.jpg';
-import myPhoto6 from '../components/My Photos/my-photo-06.jpg';
-import myPhoto7 from '../components/My Photos/my-photo-07.jpg';
-import myPhoto8 from '../components/My Photos/my-photo-08.jpg';
-import myPhoto9 from '../components/My Photos/my-photo-09.jpg';
-import myPhoto10 from '../components/My Photos/my-photo-10.jpg';
-import myPhoto11 from '../components/My Photos/my-photo-11.jpg';
-import myPhoto12 from '../components/My Photos/my-photo-12.jpg';
-import myPhoto13 from '../components/My Photos/my-photo-13.jpg';
-import myPhoto14 from '../components/My Photos/my-photo-14.jpg';
-import myPhoto15 from '../components/My Photos/my-photo-15.jpg';
-import myPhoto16 from '../components/My Photos/my-photo-16.jpg';
-import myPhoto17 from '../components/My Photos/my-photo-17.jpg';
-import myPhoto18 from '../components/My Photos/my-photo-18.jpg';
-import myPhoto19 from '../components/My Photos/my-photo-19.jpg';
 
 // Import Wedding Photos
 import wedding1 from '../components/weddings/wedding-01.jpg';
@@ -78,7 +57,7 @@ import experience19 from '../components/ExperiencePhotos/experience-19.jpg';
 import experience21 from '../components/ExperiencePhotos/experience-21.jpg';
 import experience22 from '../components/ExperiencePhotos/experience-22.jpg';
 
-type Category = 'All' | 'My Photos' | 'Weddings' | 'Private Events' | 'Community Events' | 'Corporate';
+type Category = 'Weddings' | 'Private Events' | 'Community Events' | 'Corporate';
 
 interface GalleryImage {
   src: string;
@@ -86,18 +65,21 @@ interface GalleryImage {
   alt: string;
 }
 
+// Fisher-Yates shuffle algorithm
+const shuffleArray = <T,>(array: T[]): T[] => {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
+
 const Gallery: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = useState<Category>('All');
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  const allImages: GalleryImage[] = [
-    // My Photos
-    ...Array.from({ length: 19 }, (_, i) => ({
-      src: [myPhoto1, myPhoto2, myPhoto3, myPhoto4, myPhoto5, myPhoto6, myPhoto7, myPhoto8, myPhoto9, myPhoto10, myPhoto11, myPhoto12, myPhoto13, myPhoto14, myPhoto15, myPhoto16, myPhoto17, myPhoto18, myPhoto19][i],
-      category: 'My Photos' as Category,
-      alt: `Neha Dixit Photo ${i + 1}`
-    })),
+  const allImages: GalleryImage[] = useMemo(() => shuffleArray([
     // Weddings
     ...Array.from({ length: 11 }, (_, i) => ({
       src: [wedding1, wedding2, wedding3, wedding4, wedding5, wedding6, wedding7, wedding8, wedding9, wedding10, wedding11][i],
@@ -122,13 +104,9 @@ const Gallery: React.FC = () => {
       category: 'Corporate' as Category,
       alt: `Corporate Event ${i + 1}`
     }))
-  ];
+  ]), []);
 
-  const filteredImages = selectedCategory === 'All' 
-    ? allImages 
-    : allImages.filter(img => img.category === selectedCategory);
-
-  const categories: Category[] = ['All', 'My Photos', 'Weddings', 'Private Events', 'Community Events', 'Corporate'];
+  const filteredImages = allImages;
 
   useEffect(() => {
     // Preload images
@@ -203,18 +181,6 @@ const Gallery: React.FC = () => {
 
   const getCategoryIcon = (category: Category) => {
     switch (category) {
-      case 'All':
-        return (
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 md:w-5 md:h-5">
-            <path fillRule="evenodd" d="M3 2.25a.75.75 0 00-.75.75v18a.75.75 0 00.75.75h18a.75.75 0 00.75-.75V3a.75.75 0 00-.75-.75H3zm6 12a.75.75 0 01.75-.75h4.5a.75.75 0 01.75.75v4.5a.75.75 0 01-.75.75h-4.5a.75.75 0 01-.75-.75v-4.5zM6 6.75A.75.75 0 016.75 6h10.5a.75.75 0 01.75.75v4.5a.75.75 0 01-.75.75H6.75a.75.75 0 01-.75-.75v-4.5z" clipRule="evenodd" />
-          </svg>
-        );
-      case 'My Photos':
-        return (
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 md:w-5 md:h-5">
-            <path fillRule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.06zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clipRule="evenodd" />
-          </svg>
-        );
       case 'Weddings':
         return (
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 md:w-5 md:h-5">
@@ -246,80 +212,28 @@ const Gallery: React.FC = () => {
 
   return (
     <main className="flex flex-col gap-0 min-h-screen">
-      <SectionWrapper className="pt-20 md:pt-32 pb-8 md:pb-12">
-        <div className="text-center mb-8 md:mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-gold-50 via-amber-50 to-gold-100 dark:from-gold-950/40 dark:via-amber-950/40 dark:to-gold-900/40 border border-gold-200/50 dark:border-gold-800/30 rounded-full w-fit mx-auto mb-4 md:mb-6">
-            <div className="w-2 h-2 rounded-full bg-gradient-to-r from-gold-500 to-amber-500 animate-pulse"></div>
-            <span className="text-xs font-semibold bg-gradient-to-r from-gold-700 via-amber-700 to-gold-600 dark:from-gold-300 dark:via-amber-300 dark:to-gold-400 bg-clip-text text-transparent uppercase tracking-wider">Gallery</span>
-          </div>
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold mb-3 md:mb-4 text-brand-charcoal dark:text-white transition-colors">
-            Visual <span className="bg-gradient-to-r from-gold-600 via-amber-600 to-gold-500 dark:from-gold-400 dark:via-amber-400 dark:to-gold-300 bg-clip-text text-transparent">Journey</span>
-          </h1>
-          <p className="text-stone-600 dark:text-stone-400 text-base md:text-lg max-w-2xl mx-auto transition-colors px-4">
-            A collection of memorable moments from events, celebrations, and special occasions
-          </p>
-        </div>
-
-        {/* Category Filter - Mobile: Horizontal Scroll, Desktop: Wrap */}
-        <div className="mb-8 md:mb-12">
-          {/* Mobile: Horizontal Scrollable */}
-          <div className="md:hidden overflow-x-auto pb-2 -mx-6 px-6 scrollbar-hide">
-            <div className="flex gap-2 min-w-max">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => setSelectedCategory(category)}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-full font-medium text-xs whitespace-nowrap transition-all duration-300 ${
-                    selectedCategory === category
-                      ? 'bg-gradient-to-r from-gold-500 to-amber-500 text-white shadow-lg shadow-gold-500/30'
-                      : 'bg-white dark:bg-brand-dark-surface text-stone-600 dark:text-stone-400 border border-stone-200 dark:border-white/10'
-                  }`}
-                >
-                  {getCategoryIcon(category)}
-                  <span>{category}</span>
-                  {category !== 'All' && (
-                    <span className="text-[10px] opacity-75">
-                      ({allImages.filter(img => img.category === category).length})
-                    </span>
-                  )}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Desktop: Wrap Layout */}
-          <div className="hidden md:flex flex-wrap justify-center gap-3 lg:gap-4">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium text-base transition-all duration-300 ${
-                  selectedCategory === category
-                    ? 'bg-gradient-to-r from-gold-500 to-amber-500 text-white shadow-lg shadow-gold-500/30 scale-105'
-                    : 'bg-white dark:bg-brand-dark-surface text-stone-600 dark:text-stone-400 border-2 border-stone-200 dark:border-white/10 hover:border-gold-300 dark:hover:border-gold-700 hover:text-gold-600 dark:hover:text-gold-400'
-                }`}
-              >
-                {getCategoryIcon(category)}
-                <span>{category}</span>
-                {category !== 'All' && (
-                  <span className="text-xs opacity-75">
-                    ({allImages.filter(img => img.category === category).length})
-                  </span>
-                )}
-              </button>
-            ))}
+      <SectionWrapper className="pt-12 md:pt-16 pb-6 md:pb-8">
+        <div className="mb-6 md:mb-8 mt-8 md:mt-12">
+          <div className="flex flex-col md:flex-row items-center md:items-baseline justify-center gap-2 md:gap-3 px-4">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-brand-charcoal dark:text-white transition-colors whitespace-nowrap">
+              Visual <span className="bg-gradient-to-r from-gold-600 via-amber-600 to-gold-500 dark:from-gold-400 dark:via-amber-400 dark:to-gold-300 bg-clip-text text-transparent">Journey</span>
+            </h1>
+            <span className="hidden md:inline text-gold-600 dark:text-gold-400 text-2xl md:text-3xl lg:text-4xl font-light">-</span>
+            <p className="text-stone-600 dark:text-stone-400 text-base md:text-lg transition-colors text-center md:text-left">
+              A collection of memorable moments from events, celebrations, and special occasions
+            </p>
           </div>
         </div>
       </SectionWrapper>
 
       {/* Gallery Grid */}
-      <SectionWrapper className="pb-20 md:pb-24">
+      <SectionWrapper className="py-4 md:py-6 pb-8 md:pb-12">
         {isLoading ? (
           <div className="flex items-center justify-center py-20">
             <div className="w-12 h-12 border-4 border-gold-500 border-t-transparent rounded-full animate-spin"></div>
           </div>
         ) : (
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-4 lg:gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-1 md:gap-1.5">
             {filteredImages.map((image, index) => (
               <div
                 key={`${image.category}-${index}`}

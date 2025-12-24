@@ -1,13 +1,18 @@
 import React, { useRef, useState, useEffect } from 'react';
 import SectionWrapper from '../layout/SectionWrapper';
 
-// Import all private event photos except the banner ones (01, 02, 05, 07, 08)
+// Import all private event photos
+import event1 from '../privateevents/private-event-01.jpg';
+import event2 from '../privateevents/private-event-02.jpg';
 import event3 from '../privateevents/private-event-03.jpg';
 import event4 from '../privateevents/private-event-04.jpg';
+import event5 from '../privateevents/private-event-05.jpg';
 import event6 from '../privateevents/private-event-06.jpg';
+import event7 from '../privateevents/private-event-07.jpg';
+import event8 from '../privateevents/private-event-08.jpg';
 
 const privateEventPhotos = [
-  event3, event4, event6
+  event1, event2, event3, event4, event5, event6, event7, event8
 ];
 
 const PrivateEventPhotoCarousel: React.FC = () => {

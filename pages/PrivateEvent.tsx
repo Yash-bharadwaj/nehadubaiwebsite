@@ -2,9 +2,9 @@ import React from 'react';
 import SectionWrapper from '../components/layout/SectionWrapper';
 import Button from '../components/ui/Button';
 import LogoLoop from '../components/sections/LogoLoop';
-import Testimonials from '../components/sections/Testimonials';
 import PrivateEventBannerSlider from '../components/sections/PrivateEventBannerSlider';
 import PrivateEventPhotoCarousel from '../components/sections/PrivateEventPhotoCarousel';
+import PrivateVideoCarousel from '../components/sections/PrivateVideoCarousel';
 import CircularText from '../components/ui/CircularText';
 import nehaImage from '../components/privateevents/nehaprivateevent.jpg';
 
@@ -79,9 +79,6 @@ const PrivateEvent: React.FC = () => {
     <main className="flex flex-col gap-0">
       {/* Banner Slider */}
       <PrivateEventBannerSlider />
-
-      {/* Photo Carousel */}
-      <PrivateEventPhotoCarousel />
 
       {/* About Neha Section */}
       <SectionWrapper className="py-20 md:py-24 bg-white dark:bg-brand-dark-bg relative overflow-hidden">
@@ -160,6 +157,12 @@ const PrivateEvent: React.FC = () => {
           </div>
         </div>
       </SectionWrapper>
+
+      {/* Video Carousel Section */}
+      <PrivateVideoCarousel />
+
+      {/* Photo Carousel */}
+      <PrivateEventPhotoCarousel />
 
       {/* Private Event Stats Section */}
       <section className="relative bg-gradient-to-br from-amber-600 via-purple-600 to-amber-500 dark:from-amber-800 dark:via-purple-800 dark:to-amber-700 text-white overflow-hidden">
@@ -243,10 +246,6 @@ const PrivateEvent: React.FC = () => {
         <LogoLoop />
       </div>
 
-      {/* Testimonials Section */}
-      <div className="bg-white dark:bg-brand-dark-bg">
-        <Testimonials />
-      </div>
 
       {/* Why Choose Section */}
       <SectionWrapper className="py-20 bg-gradient-to-br from-amber-50/50 via-white to-purple-50/30 dark:from-amber-950/20 dark:via-brand-dark-bg dark:to-purple-950/20">

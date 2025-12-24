@@ -5,7 +5,6 @@ import Stats from '../components/sections/Stats';
 import LogoLoop from '../components/sections/LogoLoop';
 import VideoCarousel from '../components/sections/VideoCarousel';
 import CelebritiesGallery from '../components/sections/CelebritiesGallery';
-import EmceeMoments from '../components/sections/EmceeMoments';
 import SignatureStyle from '../components/sections/SignatureStyle';
 import Process from '../components/sections/Process';
 import FAQ from '../components/sections/FAQ';
@@ -32,7 +31,6 @@ const Home: React.FC = () => {
       <LogoLoop />
       <VideoCarousel />
       <CelebritiesGallery />
-      <EmceeMoments />
       <SignatureStyle />
       <Process />
       <FAQ />
