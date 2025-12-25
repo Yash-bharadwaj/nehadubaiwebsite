@@ -2,6 +2,9 @@ import React, { useRef, useState, useEffect } from 'react';
 import SectionWrapper from '../layout/SectionWrapper';
 
 // Import all community photos except the banner ones (01, 02, 03)
+import community9 from '../Community Events/community-event-09.jpeg';
+import community10 from '../Community Events/community-event-10.jpeg';
+import community11 from '../Community Events/community-event-11.png';
 import community4 from '../Community Events/community-event-04.jpg';
 import community5 from '../Community Events/community-event-05.jpg';
 import community6 from '../Community Events/community-event-06.jpg';
@@ -9,7 +12,7 @@ import community7 from '../Community Events/community-event-07.jpg';
 import community8 from '../Community Events/community-event-08.jpg';
 
 const communityPhotos = [
-  community4, community5, community6, community7, community8
+  community9, community10, community11, community4, community5, community6, community7, community8
 ];
 
 const CommunityPhotoCarousel: React.FC = () => {
@@ -122,12 +125,12 @@ const CommunityPhotoCarousel: React.FC = () => {
               className="flex-shrink-0 w-[85vw] md:w-[45vw] lg:w-[35vw] xl:w-[28vw] group"
             >
               <div className="relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 bg-white dark:bg-brand-dark-surface">
-                <div className="relative w-full aspect-[4/3] overflow-hidden">
+                <div className="relative w-full aspect-[4/3] overflow-hidden bg-stone-100 dark:bg-stone-900">
                   <img
                     src={photo}
                     alt={`Community Event ${index + 1}`}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    style={{ objectFit: 'cover' }}
+                    className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
+                    style={{ objectFit: 'contain' }}
                   />
                 </div>
               </div>

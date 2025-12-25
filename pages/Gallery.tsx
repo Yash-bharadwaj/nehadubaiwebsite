@@ -2,6 +2,11 @@ import React, { useState, useEffect, useMemo } from 'react';
 import SectionWrapper from '../components/layout/SectionWrapper';
 
 // Import Wedding Photos
+import wedding12 from '../components/weddings/wedding-12.jpg';
+import wedding13 from '../components/weddings/wedding-13.jpeg';
+import wedding14 from '../components/weddings/wedding-14.jpeg';
+import wedding15 from '../components/weddings/wedding-15.jpeg';
+import wedding16 from '../components/weddings/wedding-16.jpeg';
 import wedding1 from '../components/weddings/wedding-01.jpg';
 import wedding2 from '../components/weddings/wedding-02.jpg';
 import wedding3 from '../components/weddings/wedding-03.jpg';
@@ -25,6 +30,9 @@ import private7 from '../components/privateevents/private-event-07.jpg';
 import private8 from '../components/privateevents/private-event-08.jpg';
 
 // Import Community Event Photos
+import community9 from '../components/Community Events/community-event-09.jpeg';
+import community10 from '../components/Community Events/community-event-10.jpeg';
+import community11 from '../components/Community Events/community-event-11.png';
 import community1 from '../components/Community Events/community-event-01.jpg';
 import community2 from '../components/Community Events/community-event-02.jpg';
 import community3 from '../components/Community Events/community-event-03.jpg';
@@ -81,8 +89,8 @@ const Gallery: React.FC = () => {
 
   const allImages: GalleryImage[] = useMemo(() => shuffleArray([
     // Weddings
-    ...Array.from({ length: 11 }, (_, i) => ({
-      src: [wedding1, wedding2, wedding3, wedding4, wedding5, wedding6, wedding7, wedding8, wedding9, wedding10, wedding11][i],
+    ...Array.from({ length: 16 }, (_, i) => ({
+      src: [wedding12, wedding13, wedding14, wedding15, wedding16, wedding1, wedding2, wedding3, wedding4, wedding5, wedding6, wedding7, wedding8, wedding9, wedding10, wedding11][i],
       category: 'Weddings' as Category,
       alt: `Wedding Event ${i + 1}`
     })),
@@ -93,8 +101,8 @@ const Gallery: React.FC = () => {
       alt: `Private Event ${i + 1}`
     })),
     // Community Events
-    ...Array.from({ length: 8 }, (_, i) => ({
-      src: [community1, community2, community3, community4, community5, community6, community7, community8][i],
+    ...Array.from({ length: 11 }, (_, i) => ({
+      src: [community9, community10, community11, community1, community2, community3, community4, community5, community6, community7, community8][i],
       category: 'Community Events' as Category,
       alt: `Community Event ${i + 1}`
     })),
@@ -243,7 +251,7 @@ const Gallery: React.FC = () => {
                 <img
                   src={image.src}
                   alt={image.alt}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
                   loading="lazy"
                 />
                 {/* Overlay on Hover */}

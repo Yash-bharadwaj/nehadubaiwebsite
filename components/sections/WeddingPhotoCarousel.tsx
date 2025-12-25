@@ -2,6 +2,11 @@ import React, { useRef, useState, useEffect } from 'react';
 import SectionWrapper from '../layout/SectionWrapper';
 
 // Import all wedding photos except the banner ones (09, 10), About Neha image (05), and removed ones (07, 11)
+import wedding12 from '../weddings/wedding-12.jpg';
+import wedding13 from '../weddings/wedding-13.jpeg';
+import wedding14 from '../weddings/wedding-14.jpeg';
+import wedding15 from '../weddings/wedding-15.jpeg';
+import wedding16 from '../weddings/wedding-16.jpeg';
 import wedding1 from '../weddings/wedding-01.jpg';
 import wedding2 from '../weddings/wedding-02.jpg';
 import wedding3 from '../weddings/wedding-03.jpg';
@@ -10,7 +15,7 @@ import wedding6 from '../weddings/wedding-06.jpg';
 import wedding8 from '../weddings/wedding-08.jpg';
 
 const weddingPhotos = [
-  wedding1, wedding2, wedding3, wedding4, wedding6, wedding8
+  wedding12, wedding13, wedding14, wedding15, wedding16, wedding1, wedding2, wedding3, wedding4, wedding6, wedding8
 ];
 
 const WeddingPhotoCarousel: React.FC = () => {
@@ -123,12 +128,12 @@ const WeddingPhotoCarousel: React.FC = () => {
               className="flex-shrink-0 w-[85vw] md:w-[45vw] lg:w-[35vw] xl:w-[28vw] group"
             >
               <div className="relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 bg-white dark:bg-brand-dark-surface">
-                <div className="relative w-full aspect-[4/3] overflow-hidden">
+                <div className="relative w-full aspect-[4/3] overflow-hidden bg-stone-100 dark:bg-stone-900">
                   <img
                     src={photo}
                     alt={`Wedding Event ${index + 1}`}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    style={{ objectFit: 'cover' }}
+                    className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
+                    style={{ objectFit: 'contain' }}
                   />
                 </div>
               </div>

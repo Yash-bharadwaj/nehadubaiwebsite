@@ -386,7 +386,7 @@ const Wedding: React.FC = () => {
             </div>
 
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-slate-900 dark:text-white leading-tight">
-              A Romantic Wedding <span className="bg-gradient-to-r from-rose-600 via-pink-600 to-rose-500 dark:from-rose-400 dark:via-pink-400 dark:to-rose-300 bg-clip-text text-transparent">Host</span>
+              A Luxury Wedding <span className="bg-gradient-to-r from-rose-600 via-pink-600 to-rose-500 dark:from-rose-400 dark:via-pink-400 dark:to-rose-300 bg-clip-text text-transparent">Host</span>
             </h2>
 
             <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 leading-relaxed">

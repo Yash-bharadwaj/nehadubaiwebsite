@@ -125,12 +125,12 @@ const PrivateEventPhotoCarousel: React.FC = () => {
               className="flex-shrink-0 w-[85vw] md:w-[45vw] lg:w-[35vw] xl:w-[28vw] group"
             >
               <div className="relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 bg-white dark:bg-brand-dark-surface">
-                <div className="relative w-full aspect-[4/3] overflow-hidden">
+                <div className="relative w-full aspect-[4/3] overflow-hidden bg-stone-100 dark:bg-stone-900">
                   <img
                     src={photo}
                     alt={`Private Event ${index + 1}`}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    style={{ objectFit: 'cover' }}
+                    className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
+                    style={{ objectFit: 'contain' }}
                   />
                 </div>
               </div>

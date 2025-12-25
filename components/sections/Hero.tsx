@@ -4,7 +4,7 @@ import SectionWrapper from '../layout/SectionWrapper';
 import Button from '../ui/Button';
 import CircularText from '../ui/CircularText';
 import SplitText from '../ui/SplitText';
-import nehaHomeImage from '../ExperiencePhotos/nehaHome.jpg';
+import nehaHomeImage from '../My Photos/NehaHomePagepic.jpeg';
 
 const greetings = ["Hello!", "Namaste!", "As-salamu alaykum!", "Marhaba!", "Sat Sri Akal!"];
 const roles = ["Host", "Anchor", "Emcee"];

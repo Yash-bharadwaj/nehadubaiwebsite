@@ -20,21 +20,30 @@ import celebrities13 from "../picswithcelebrities/celebrity-13.jpeg";
 import celebrities14 from "../picswithcelebrities/celebrity-14.jpeg";
 
 export default function CelebritiesGallery() {
+  // Arranged for horizontal (row-wise) display in 3 columns
+  // Row 1: celebrity-10, celebrity-12, celebrity-08
+  // Row 2: celebrity-07, celebrity-13, celebrity-14
+  // Row 3: celebrity-01, celebrity-02, celebrity-03
+  // Row 4: celebrity-04, celebrity-05, celebrity-06
+  // Row 5: celebrity-09, celebrity-11, (empty)
   const images = [
-    celebrities1,
-    celebrities2,
-    celebrities3,
-    celebrities4,
-    celebrities5,
-    celebrities6,
-    celebrities7,
-    celebrities8,
-    celebrities9,
-    celebrities10,
-    celebrities11,
-    celebrities12,
-    celebrities13,
-    celebrities14,
+    // Column 1 (firstPart)
+    celebrities10, // Row 1, Col 1
+    celebrities7,  // Row 2, Col 1
+    celebrities1,  // Row 3, Col 1
+    celebrities4,  // Row 4, Col 1
+    celebrities9,  // Row 5, Col 1
+    // Column 2 (secondPart)
+    celebrities12, // Row 1, Col 2
+    celebrities13, // Row 2, Col 2
+    celebrities2,  // Row 3, Col 2
+    celebrities5,  // Row 4, Col 2
+    celebrities11, // Row 5, Col 2
+    // Column 3 (thirdPart)
+    celebrities8,  // Row 1, Col 3
+    celebrities14, // Row 2, Col 3
+    celebrities3,  // Row 3, Col 3
+    celebrities6,  // Row 4, Col 3
   ];
 
   // Duplicate logos for seamless infinite scroll

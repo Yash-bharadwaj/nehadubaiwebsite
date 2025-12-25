@@ -8,7 +8,6 @@ import moment4 from '../emceemoments/emcee-moment-04.jpeg';
 import moment5 from '../emceemoments/emcee-moment-05.jpeg';
 import moment6 from '../emceemoments/emcee-moment-06.jpeg';
 import moment7 from '../emceemoments/emcee-moment-07.jpeg';
-import moment8 from '../emceemoments/emcee-moment-08.jpeg';
 import moment9 from '../emceemoments/emcee-moment-09.jpeg';
 import moment10 from '../emceemoments/emcee-moment-10.jpeg';
 
@@ -44,19 +43,14 @@ const slides = [
     subtitle: 'Hosting across the UAE and globally',
   },
   {
-    image: moment8,
-    title: 'Team Building',
-    subtitle: 'Fostering collaboration and team spirit',
-  },
-  {
     image: moment9,
-    title: 'Corporate Conferences',
+    title: 'Team Building',
     subtitle: 'Leading professional conferences and business summits',
   },
   {
     image: moment10,
-    title: 'Exclusive Functions',
-    subtitle: 'Premium events with sophistication',
+    title: 'Crowd Interactions',
+    subtitle: 'Engaging audiences with dynamic and interactive hosting',
   },
 ];
 

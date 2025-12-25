@@ -80,7 +80,7 @@ export const ParallaxScroll = ({
 
                 src={el}
 
-                className="h-64 sm:h-72 md:h-80 lg:h-96 w-full object-cover object-center rounded-xl md:rounded-2xl shadow-lg group-hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.02] !m-0 !p-0"
+                className="h-64 sm:h-72 md:h-80 lg:h-96 w-full object-contain object-center rounded-xl md:rounded-2xl shadow-lg group-hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.02] !m-0 !p-0 bg-stone-100 dark:bg-stone-900"
 
                 height="400"
 
@@ -106,7 +106,7 @@ export const ParallaxScroll = ({
 
                 src={el}
 
-                className="h-64 sm:h-72 md:h-80 lg:h-96 w-full object-cover object-center rounded-xl md:rounded-2xl shadow-lg group-hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.02] !m-0 !p-0"
+                className="h-64 sm:h-72 md:h-80 lg:h-96 w-full object-contain object-center rounded-xl md:rounded-2xl shadow-lg group-hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.02] !m-0 !p-0 bg-stone-100 dark:bg-stone-900"
 
                 height="400"
 
@@ -132,7 +132,7 @@ export const ParallaxScroll = ({
 
                 src={el}
 
-                className="h-64 sm:h-72 md:h-80 lg:h-96 w-full object-cover object-center rounded-xl md:rounded-2xl shadow-lg group-hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.02] !m-0 !p-0"
+                className="h-64 sm:h-72 md:h-80 lg:h-96 w-full object-contain object-center rounded-xl md:rounded-2xl shadow-lg group-hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.02] !m-0 !p-0 bg-stone-100 dark:bg-stone-900"
 
                 height="400"
 

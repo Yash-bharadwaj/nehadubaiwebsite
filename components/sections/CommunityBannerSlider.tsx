@@ -62,6 +62,7 @@ const CommunityBannerSlider: React.FC = () => {
                   className="w-full h-full"
                   style={{ 
                     objectFit: 'cover',
+                    objectPosition: 'center 35%',
                     width: '100%',
                     height: '100%',
                     display: 'block'

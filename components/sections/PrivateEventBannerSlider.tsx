@@ -11,9 +11,9 @@ import banner5 from '../privateevents/private-event-08.jpg';
 const banners = [
   { image: banner1, title: 'Elegant Celebrations', subtitle: 'Where Moments Become Memories' },
   { image: banner2, title: 'Intimate Gatherings', subtitle: 'Crafting Unforgettable Experiences' },
-  { image: banner3, title: 'Private Events', subtitle: 'Personal Touch, Professional Excellence' },
+  { image: banner3, title: 'Bespoke Events', subtitle: 'Customized Experiences Tailored to Your Vision' },
   { image: banner4, title: 'Special Occasions', subtitle: 'Making Every Moment Memorable' },
-  { image: banner5, title: 'Celebrations', subtitle: 'Creating Joyful Memories Together' }
+  { image: banner5, title: 'Elite Functions', subtitle: 'Exclusive Events with Sophistication & Excellence' }
 ];
 
 const PrivateEventBannerSlider: React.FC = () => {

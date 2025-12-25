@@ -1,7 +1,6 @@
 import React from 'react';
 import SectionWrapper from '../components/layout/SectionWrapper';
 import Button from '../components/ui/Button';
-import LogoLoop from '../components/sections/LogoLoop';
 import PrivateEventBannerSlider from '../components/sections/PrivateEventBannerSlider';
 import PrivateEventPhotoCarousel from '../components/sections/PrivateEventPhotoCarousel';
 import PrivateVideoCarousel from '../components/sections/PrivateVideoCarousel';
@@ -240,12 +239,6 @@ const PrivateEvent: React.FC = () => {
           ))}
         </div>
       </SectionWrapper>
-
-      {/* Scrolling Brands Section */}
-      <div className="bg-gradient-to-br from-slate-50 via-amber-50/20 to-purple-50/30 dark:from-slate-950 dark:via-amber-950/10 dark:to-purple-950/10">
-        <LogoLoop />
-      </div>
-
 
       {/* Why Choose Section */}
       <SectionWrapper className="py-20 bg-gradient-to-br from-amber-50/50 via-white to-purple-50/30 dark:from-amber-950/20 dark:via-brand-dark-bg dark:to-purple-950/20">
