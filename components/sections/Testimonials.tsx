@@ -50,8 +50,11 @@ const Testimonials: React.FC = () => {
 
   return (
     <>
+      {/* The Persona Section with Video Carousel - Moved to Top */}
+      <PersonaVideoCarousel />
+
       {/* Testimonials Section */}
-      <SectionWrapper className="py-20 md:py-24 bg-gradient-to-br from-stone-50 via-white to-stone-50/50 dark:from-slate-950 dark:via-brand-dark-bg dark:to-slate-900 relative overflow-hidden">
+      <SectionWrapper className="pt-8 md:pt-10 pb-20 md:pb-24 bg-gradient-to-br from-stone-50 via-white to-stone-50/50 dark:from-slate-950 dark:via-brand-dark-bg dark:to-slate-900 relative overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05]">
         <div className="absolute top-20 left-10 w-64 h-64">
@@ -284,9 +287,6 @@ const Testimonials: React.FC = () => {
         </div>
       </div>
     </SectionWrapper>
-
-      {/* The Persona Section with Video Carousel */}
-      <PersonaVideoCarousel />
 
       {/* CTA Section */}
       <SectionWrapper className="py-20 md:py-24 bg-gradient-to-br from-gold-50 via-amber-50 to-gold-100 dark:from-gold-950/40 dark:via-amber-950/40 dark:to-gold-900/40 relative overflow-hidden">

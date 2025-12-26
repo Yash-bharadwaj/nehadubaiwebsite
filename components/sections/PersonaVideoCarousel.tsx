@@ -148,7 +148,7 @@ const PersonaVideoCarousel: React.FC = () => {
   };
 
   return (
-    <SectionWrapper className="py-16 md:py-20 bg-gradient-to-br from-stone-50 via-white to-stone-50/50 dark:from-slate-950 dark:via-brand-dark-bg dark:to-slate-900 relative overflow-hidden">
+    <SectionWrapper className="pt-16 md:pt-20 pb-8 md:pb-10 bg-gradient-to-br from-stone-50 via-white to-stone-50/50 dark:from-slate-950 dark:via-brand-dark-bg dark:to-slate-900 relative overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05]">
         <div className="absolute top-20 left-10 w-64 h-64">
@@ -307,27 +307,6 @@ const PersonaVideoCarousel: React.FC = () => {
           </div>
         </div>
         </div>
-      </div>
-
-      <div className="max-w-4xl mx-auto text-center relative z-10 mt-12">
-        <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-gold-50 via-amber-50 to-gold-100 dark:from-gold-950/40 dark:via-amber-950/40 dark:to-gold-900/40 border border-gold-200/50 dark:border-gold-800/30 rounded-full w-fit mx-auto mb-8">
-          <div className="w-2 h-2 rounded-full bg-gradient-to-r from-gold-500 to-amber-500 animate-pulse"></div>
-          <span className="text-xs font-semibold bg-gradient-to-r from-gold-700 via-amber-700 to-gold-600 dark:from-gold-300 dark:via-amber-300 dark:to-gold-400 bg-clip-text text-transparent uppercase tracking-wider">The Persona</span>
-        </div>
-        
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 text-brand-charcoal dark:text-white transition-colors">
-          More than just a <span className="bg-gradient-to-r from-gold-600 via-amber-600 to-gold-500 dark:from-gold-400 dark:via-amber-400 dark:to-gold-300 bg-clip-text text-transparent">voice</span>
-        </h2>
-        
-        <div className="mb-8">
-          <p className="text-xl md:text-2xl font-light italic text-stone-700 dark:text-stone-300 mb-8 leading-relaxed">
-            "The stage is never silent when Neha is around."
-          </p>
-        </div>
-        
-        <p className="text-lg md:text-xl text-stone-600 dark:text-stone-400 leading-relaxed max-w-3xl mx-auto">
-          With a unique blend of spontaneous wit and structured eloquence, Neha transforms standard agendas into engaging experiences. Whether it's a high-stakes corporate boardroom, a massive award ceremony, or a vibrant ballroom wedding, she commands the room with grace and keeps the energy alive, even during the quietest transitions.
-        </p>
       </div>
     </SectionWrapper>
   );
