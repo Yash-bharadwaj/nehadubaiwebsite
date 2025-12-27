@@ -66,6 +66,7 @@ const PrivateEventBannerSlider: React.FC = () => {
                   className="w-full h-full"
                   style={{ 
                     objectFit: 'cover',
+                    objectPosition: banner.title === 'Elite Functions' ? 'center 15%' : 'center center',
                     width: '100%',
                     height: '100%',
                     display: 'block'
